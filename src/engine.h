@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include "list.h"
 
+#include "entity.h"
 #include "input.h"
 #include "scene.h"
 #include "screen.h"
