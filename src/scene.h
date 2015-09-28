@@ -14,6 +14,7 @@ typedef struct scene {
 	List entities; //List of added entities
 	List _add_list;
 } scene;
+
 typedef scene* Scene;
 
 
