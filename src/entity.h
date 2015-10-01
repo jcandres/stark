@@ -5,13 +5,13 @@
 
 
 typedef struct entity {
-	int id;
-	float x, y;
+	int 	id;
+	float 	x, y;
 
-	int _remove; //delete flag
+	int 	_remove; //delete flag
 
-	Sprite sprite;
-	Animation animation;
+	Sprite 	sprite;
+	float 	image_index, image_speed;
 
 	///todo gamemaker draw stuff
 } entity;

@@ -12,7 +12,8 @@ Entity entity_new() {
 	e->y = 0;
 
 	e->sprite = NULL;
-	e->animation = NULL;
+	e->image_index = 0;
+	e->image_speed = 0;
 
 	return e;
 }
@@ -22,6 +23,9 @@ void entity_free(Entity e) {
 }
 
 void entity_draw(Entity e) {
+	e->image_index += e->image_speed;
+
 	if (!e->sprite) { return; }
-	sprite_render(e->sprite);
+	sprite_draw(e->sprite, (int)e->image_index, e->x, e->y);
+	sprite_draw(e->sprite, (int)e->image_index, e->x, e->y);
 }
