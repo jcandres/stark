@@ -2,7 +2,7 @@
 
 //static List entities;
 
-Entity entity_new() {
+Entity entity_new(string name, int x, int y) {
 	static int __ids = 0;
 
 	Entity e = calloc(1, sizeof(struct entity));
@@ -10,12 +10,13 @@ Entity entity_new() {
 	e->id = ++__ids;
 	e->_remove = 0;
 
-	e->x = 0;
-	e->y = 0;
+	e->name = NULL;
+	strmk(e->name, "%s", name);
+
+	e->x = x;
+	e->y = y;
 
 	e->sprite = NULL;
-	e->image_index = 0;
-	e->image_speed = 0;
 
 	return e;
 }
@@ -30,6 +31,5 @@ void entity_update(Entity e) {
 
 void entity_draw(Entity e) {
 	if (!e->sprite) { return; }
-	sprite_draw(e->sprite, (int)e->image_index, e->x, e->y);
-	sprite_draw(e->sprite, (int)e->image_index, e->x, e->y);
+	sprite_draw(e->sprite, 0, e->x, e->y); //wippp image_index
 }

@@ -33,7 +33,7 @@ typedef struct sprite {
 
 typedef struct sprite* Sprite;
 
-Sprite 	sprite_new(const char* path, int w, int h, const char* frames);
+Sprite 	sprite_new(string path, int w, int h, const char* frames);
 void 	sprite_delete(Sprite s);
 bool 	sprite_update(Sprite s);
 bool 	sprite_draw(Sprite s, int frame, int x, int y);
