@@ -14,21 +14,29 @@ typedef enum {
 key_state keystates[_MAX_STORED_KEYS] = { NONE };
 const Uint8* keyboard;
 
+bool input_init() {
+	if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER) < 0) {
+		debug("error initializing controller, %s", SDL_GetError());
+		return false;
+	}
 
-int input_check(Key k) {
+	return true;
+}
+
+bool input_check(Key k) {
 	return (keyboard[SDL_GetScancodeFromKey(k)]);
 }
 
-int input_pressed(Key k) {
+bool input_pressed(Key k) {
 	return (keystates[k] == PRESSED);
 }
 
-int input_released(Key k) {
+bool input_released(Key k) {
 	return (keystates[k] == RELEASED);
 }
 
 
-int input_update() {
+bool input_update() {
 	keyboard = SDL_GetKeyboardState(NULL);
 
 	for (int i = 0; i < _MAX_STORED_KEYS; i++) { //reset states
@@ -39,7 +47,9 @@ int input_update() {
 	while (SDL_PollEvent(&event)) {
 
 		switch (event.type) {
-		case SDL_QUIT: return 1; break;
+		case SDL_QUIT:
+			return false;
+			break;
 		case SDL_MOUSEMOTION:
 			mouse_x = event.motion.x;
 			mouse_y = event.motion.y;
@@ -60,7 +70,5 @@ int input_update() {
 		}
 	}
 
-	if (input_pressed(KEY_ESCAPE)) {return 1;} //debug hack
-
-	return 0;
+	return true;
 } //1 if EXIT

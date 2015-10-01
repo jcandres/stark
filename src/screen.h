@@ -2,6 +2,7 @@
 #define SCREEN_H
 
 #include <SDL.h>
+#include "stark.h"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -13,8 +14,8 @@ int 	scr_zoom;
 
 //todo buffer
 
-void 	screen_init(const char* title, int w, int h);
-void 	screen_render();
+bool 	screen_init(const char* title, int w, int h);
+bool 	screen_render();
 //todo resert (on resize, on fullscreen)
 
 SDL_Surface* screen_optimize_surf(SDL_Surface* surf);

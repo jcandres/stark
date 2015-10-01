@@ -11,7 +11,7 @@ Scene	scene_new() {
 	return scn;
 }
 
-void	scene_free(Scene scn) {
+void	scene_delete(Scene scn) {
 	list_clear_and_delete(scn->entities);
 	free(scn->entities);
 	list_clear_and_delete(scn->_add_list);
@@ -37,7 +37,7 @@ void 	scene_update(Scene scn) {
 	while (list_size(_remove_list)) {
 		Entity e = list_pop(_remove_list);
 		list_remove(scn->entities, e);
-		entity_free(e);
+		entity_delete(e);
 	}
 	list_clear_and_delete(_remove_list);
 	list_delete(_remove_list);

@@ -5,7 +5,7 @@ INC = -Ic:\sdl2\i686-w64-mingw32\include\sdl2
 LIBDIR = -Lc:\sdl2\i686-w64-mingw32\lib
 LDFLAGS = -lmingw32 -lSDL2main -lSDL2 -lopengl32
 
-TARGET   = mag
+TARGET   = stark
 SRCDIR   = src
 OBJDIR   = obj
 BUILDDIR = $(TARGET)

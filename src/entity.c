@@ -1,5 +1,7 @@
 #include "entity.h"
 
+//static List entities;
+
 Entity entity_new() {
 	static int __ids = 0;
 
@@ -18,13 +20,15 @@ Entity entity_new() {
 	return e;
 }
 
-void entity_free(Entity e) {
+void entity_delete(Entity e) {
 	free(e);
 }
 
-void entity_draw(Entity e) {
-	e->image_index += e->image_speed;
+void entity_update(Entity e) {
+	sprite_update(e->sprite);
+}
 
+void entity_draw(Entity e) {
 	if (!e->sprite) { return; }
 	sprite_draw(e->sprite, (int)e->image_index, e->x, e->y);
 	sprite_draw(e->sprite, (int)e->image_index, e->x, e->y);

@@ -19,7 +19,7 @@ typedef scene* Scene;
 
 
 Scene	scene_new();
-void	scene_free(Scene scn);
+void	scene_delete(Scene scn);
 void 	scene_add(Scene scn, Entity ent); //add entity to scene
 void 	scene_update(Scene scn); //iterate and update entities
 

@@ -1,7 +1,7 @@
 
 #include "list.h"
 
-#define _MIN(a,b) (((a)<(b))?(a):(b))
+#define ___MIN___(a,b) (((a)<(b))?(a):(b))
 #define LIST(l) ((list_int_t *)l)
 
 typedef struct list_int_t {
@@ -24,7 +24,7 @@ static void list_allocate_int(List l) {
 }
 
 void list_set_size(List l, int size) {
-	LIST(l)->fillSize = _MIN(size, LIST(l)->allocSize);
+	LIST(l)->fillSize = ___MIN___(size, LIST(l)->allocSize);
 }
 
 List list_new() {
