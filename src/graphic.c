@@ -5,6 +5,7 @@ SDL_Texture* load_texture(string path);
 /**
  * Screen handling
  */
+
 bool
 screen_init(const char* title, int w, int h, int zoom) {
 	scr_zoom = 1;
@@ -91,10 +92,9 @@ sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
 	// sequence of frames
 	s->frame_sequence = NULL;
 	s->frame_index = 0;
-	s->frame_rate = 500;
+	s->frame_rate = .25;
 
 	s->_oldtime = 0;
-	s->_frame_index = 0;
 	s->_frames_max = 0;
 
 	if (frame_sequence) { //user provided string, parse it
@@ -127,43 +127,20 @@ sprite_delete(Sprite s) {
 
 bool
 sprite_update(Sprite s) {
-	if (!s) { return false; }
-
-	//update frame
-	if (s->_oldtime + s->frame_rate > SDL_GetTicks()) { return true; }
+	if (s->_oldtime + s->frame_rate * 1000 > SDL_GetTicks()) { return true; }
 	s->_oldtime = SDL_GetTicks();
-	s->_frame_index += s->frame_rate;
-	if (s->_frame_index >= s->_frames_max) {
-		s->_frame_index = 0;
+	s->frame_index++;
+	if (s->frame_index >= s->_frames_max) {
+		s->frame_index = 0;
 	}
-
-
 
 	return true;
 }
 
 bool
 sprite_draw(Sprite s, int x, int y) {
-	if (!s) { return false; }
-
-	//SDL_Delay(200);
-	int draw_frame = (int)s->_frame_index; // the frame we will draw
-	// ANIMATION STUFF
-	/*
-	int draw_frame = s->_frame_index; // the frame we will draw
-		if (s->frame_sequence) {
-			s->frame_index += s->frame_rate;
-			//if reached end of animation...
-			if (s->frame_sequence[(int)s->frame_index] == '\0') {
-				// simply loop it (WIP)
-				s->frame_index = 0;
-			}
-			draw_frame = chtoi(s->frame_sequence[(int)s->frame_index]);
-		}*/
-	//trace("%i\n", draw_frame);
-
-
-	//get x and y of tile based on current frame + cols and rows of the texture..
+	//get the frame we will draw from the string
+	int draw_frame = chtoi(s->frame_sequence[(int)s->frame_index]);
 
 	int tile_x, tile_y;
 	tile_x = (draw_frame % s->sheet_cols) * s->w;
@@ -174,13 +151,11 @@ sprite_draw(Sprite s, int x, int y) {
 	SDL_QueryTexture(s->texture, NULL, NULL, &w, &h);
 	SDL_Rect dest = { x, y, s->w* s->xscale, s->h* s->yscale};
 
-
 	SDL_RenderCopyEx(renderer, s->texture,
 	                 &clip, &dest,
 	                 (double)s->angle, //double angle
 	                 NULL, //SDL_Point* center
 	                 (s->flip) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
-	trace("%i: %i, %i", draw_frame, tile_x, tile_y);
 	return true;
 }
 

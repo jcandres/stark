@@ -30,10 +30,10 @@ entity_delete(Entity e) {
 
 void
 entity_update(Entity e) {
-	sprite_update(e->sprite);
+	if (e->sprite) { sprite_update(e->sprite); }
 }
 
 void
 entity_draw(Entity e) {
-	sprite_draw(e->sprite, e->x, e->y); //wippp image_index
+	if (e->sprite) { sprite_draw(e->sprite, e->x, e->y); }
 }

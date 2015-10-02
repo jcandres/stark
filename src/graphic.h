@@ -42,7 +42,7 @@ typedef struct sprite {
 
 	string 		frame_sequence;			//sequence of frames to animate: "0134"
 	float		frame_index,			//frame to draw
-	                frame_rate,			//milliseconds
+	                frame_rate,			//seconds
 	                xscale, yscale,
 	                angle;
 	unsigned int	alpha;				//0-255
@@ -50,7 +50,6 @@ typedef struct sprite {
 
 	//private
 	long	_oldtime; 	//animation time leftovers
-	long	_frame_index; 	//the real deal
 	int	_frames_max; 	//max of frames in the sequence
 
 } sprite;
