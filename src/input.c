@@ -17,7 +17,8 @@ int mouse_x, mouse_y;
 
 /** Input systems */
 
-bool input_init() {
+bool
+input_init() {
 	if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER) < 0) {
 		debug("error initializing controller, %s", SDL_GetError());
 		return false;
@@ -26,7 +27,8 @@ bool input_init() {
 	return true;
 }
 
-bool input_update() {
+bool
+input_update() {
 	keyboard = SDL_GetKeyboardState(NULL);
 
 	for (int i = 0; i < _MAX_STORED_KEYS; i++) { //reset states
@@ -62,30 +64,36 @@ bool input_update() {
 	return true;
 }
 
-void input_quit() {
+void
+input_quit() {
 
 }
 
 
 /** Input checking */
 
-bool input_check(Key k) {
+bool
+input_check(Key k) {
 	return (keyboard[SDL_GetScancodeFromKey(k)]);
 }
 
-bool input_pressed(Key k) {
+bool
+input_pressed(Key k) {
 	return (keystates[k] == PRESSED);
 }
 
-bool input_released(Key k) {
+bool
+input_released(Key k) {
 	return (keystates[k] == RELEASED);
 }
 
-int input_mouse_x() {
+int
+input_mouse_x() {
 	return mouse_x;
 }
 
-int input_mouse_y() {
+int
+input_mouse_y() {
 	return mouse_y;
 }
 

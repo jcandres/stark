@@ -2,7 +2,7 @@
 CC = gcc
 
 # -Wl,-subsystem,windows gets rid of the console window
-CFLAGS = -std=c99 -g -Wall -Wextra -Woverride-init -Wunused-variable
+CFLAGS = -std=c99 -pedantic -g -Wall -Wextra -Woverride-init -Wunused-variable
 INC = -Ic:\sdl2\include\sdl2
 LIBDIR = -Lc:\sdl2\lib
 LDFLAGS = -lmingw32 -lSDL2main -lSDL2 -lopengl32 -lSDL2_mixer -lSDL2_ttf

@@ -15,7 +15,22 @@
 bool 	stark_quit();
 void	get_fps();
 
-bool stark_execute() {
+
+bool
+stark_init() {
+	SDL_Init(0);
+
+	if (!screen_init("Title", 800, 600, 1)) { return false; }
+	if (!audio_init()) { return false; }
+	if (!input_init()) { return false; }
+	//etc
+
+	atexit(SDL_Quit);
+	return true;
+}
+
+bool
+stark_execute() {
 	//if (!stark_init()) { return false; }
 
 	///////////
@@ -23,7 +38,8 @@ bool stark_execute() {
 	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "012321");
 	sprite_set_scale(e->sprite, 10, 10);
 	////////////
-	music_play(music_load("res/nervously.ogg"), true, 10);
+	music_play(music_load("res/nervously.ogg"), true, 15);
+	//sound_play(sound_load("res/nervously.ogg"), 100);
 
 	while (1) {
 		if (!input_update()) { break; }
@@ -43,19 +59,8 @@ bool stark_execute() {
 }
 
 
-bool stark_init() {
-	SDL_Init(0);
-
-	if (!screen_init("Title", 800, 600, 1)) { return false; }
-	if (!audio_init()) { return false; }
-	if (!input_init()) { return false; }
-	//etc
-
-	atexit(SDL_Quit);
-	return true;
-}
-
-bool stark_quit() {
+bool
+stark_quit() {
 	screen_quit();
 	audio_quit();
 	input_quit();
@@ -64,7 +69,8 @@ bool stark_quit() {
 }
 
 
-void get_fps() {
+void
+get_fps() {
 	static float FPS_INTERVAL = 1.0 ;//seconds.
 	static unsigned int fps_lasttime = 0; //the last recorded time.
 	static unsigned int fps_current = 0; //the current FPS.

@@ -2,7 +2,8 @@
 
 void update_actor_list();
 
-Scene	scene_new() {
+Scene
+scene_new() {
 	Scene scn = calloc(1, sizeof(scene));
 
 	scn->entities = list_new();
@@ -11,7 +12,8 @@ Scene	scene_new() {
 	return scn;
 }
 
-void	scene_delete(Scene scn) {
+void
+scene_delete(Scene scn) {
 	list_clear_and_delete(scn->entities);
 	free(scn->entities);
 	list_clear_and_delete(scn->_add_list);
@@ -20,11 +22,13 @@ void	scene_delete(Scene scn) {
 	scn = NULL;
 }
 
-void 	scene_add(Scene scn, Entity ent) {
+void
+scene_add(Scene scn, Entity ent) {
 	list_push(scn->_add_list, ent);
 }
 
-void 	scene_update(Scene scn) {
+void
+scene_update(Scene scn) {
 	// update list
 	while (list_size(scn->_add_list)) { //add
 		list_push(scn->entities, list_pop(scn->_add_list));

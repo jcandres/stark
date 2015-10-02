@@ -5,7 +5,8 @@ SDL_Texture* load_texture(string path);
 /**
  * Screen handling
  */
-bool screen_init(const char* title, int w, int h, int zoom) {
+bool
+screen_init(const char* title, int w, int h, int zoom) {
 	scr_zoom = 1;
 	win_title = title;
 	win_w = w;
@@ -30,7 +31,8 @@ bool screen_init(const char* title, int w, int h, int zoom) {
 	return true;
 }
 
-bool screen_render() {
+bool
+screen_render() {
 	/*
 	SDL_SetRenderDrawColor(renderer, 0, 150, 0, 255);
 	SDL_SetRenderTarget(renderer, screen);
@@ -51,7 +53,8 @@ bool screen_render() {
 	return true;
 }
 
-void screen_quit() {
+void
+screen_quit() {
 	//TTF_Quit();
 }
 
@@ -60,7 +63,8 @@ void screen_quit() {
  * Sprites
  */
 
-Sprite sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
+Sprite
+sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
 	Sprite s = calloc(1, sizeof(struct sprite));
 
 	s->name = NULL;
@@ -114,22 +118,35 @@ Sprite sprite_new(string path, int frame_w, int frame_h, string frame_sequence) 
 	return s;
 }
 
-void sprite_delete(Sprite s) {
+void
+sprite_delete(Sprite s) {
 	if (s->texture) { SDL_DestroyTexture(s->texture); }
 	free(s);
 	s = NULL;
 }
 
-bool sprite_update(Sprite s) {
+bool
+sprite_update(Sprite s) {
 	if (!s) { return false; }
+
+	//update frame
+	if (s->_oldtime + s->frame_rate > SDL_GetTicks()) { return true; }
+	s->_oldtime = SDL_GetTicks();
+	s->_frame_index += s->frame_rate;
+	if (s->_frame_index >= s->_frames_max) {
+		s->_frame_index = 0;
+	}
+
+
 
 	return true;
 }
 
-bool sprite_draw(Sprite s, int x, int y) {
+bool
+sprite_draw(Sprite s, int x, int y) {
 	if (!s) { return false; }
 
-
+	//SDL_Delay(200);
 	int draw_frame = (int)s->_frame_index; // the frame we will draw
 	// ANIMATION STUFF
 	/*
@@ -163,23 +180,12 @@ bool sprite_draw(Sprite s, int x, int y) {
 	                 (double)s->angle, //double angle
 	                 NULL, //SDL_Point* center
 	                 (s->flip) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
-
-
-	//update frame
-	if (s->_oldtime + s->frame_rate > SDL_GetTicks()) { return true; }
-	s->_oldtime = SDL_GetTicks();
-	s->_frame_index += s->frame_rate;
-	if (s->_frame_index >= s->_frames_max) {
-		s->_frame_index = 0;
-	}
-	trace("%i", s->_frame_index);
-	trace("x y %i %i", tile_x, tile_y);
-
-
+	trace("%i: %i, %i", draw_frame, tile_x, tile_y);
 	return true;
 }
 
-void sprite_set_scale(Sprite s, float xscale, float yscale) {
+void
+sprite_set_scale(Sprite s, float xscale, float yscale) {
 	if (xscale <= 0 || yscale <= 0) { return; }
 	s->xscale = xscale;
 	s->yscale = yscale;
@@ -191,7 +197,8 @@ void sprite_set_scale(Sprite s, float xscale, float yscale) {
  * Private methods
  */
 
-SDL_Texture* load_texture(string path) {
+SDL_Texture*
+load_texture(string path) {
 	SDL_Surface* tmp = SDL_LoadBMP(path);
 	if (!tmp) { debug("error loading texture: %s", path); return NULL;}
 

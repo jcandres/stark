@@ -36,9 +36,13 @@
  *
  */
 
+
+/* STYLE http://suckless.org/style */
+
+
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #include <string.h>
 
 #include "list.h"
@@ -50,6 +54,7 @@ typedef enum { false, true } bool;
 #define debug(M, ...) printf( "\nDEBUG %s:%d:\n  " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
 #define warning(M, ...) printf( "\nWARNING %s:%d:\n  " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
 #define trace(M, ...) printf(  M "\n", ##__VA_ARGS__) //for quick tests
+
 
 /** string tools */
 /* move this to a sensible place plz */
