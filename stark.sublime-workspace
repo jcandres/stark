@@ -1,0 +1,2403 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"til",
+				"tile_y"
+			],
+			[
+				"_fr",
+				"_frame_index"
+			],
+			[
+				"fra",
+				"frame_h"
+			],
+			[
+				"for",
+				"for	For Loop"
+			],
+			[
+				"dra",
+				"draw_frame"
+			],
+			[
+				"te",
+				"texture"
+			],
+			[
+				"load",
+				"load_texture"
+			],
+			[
+				"SDL_",
+				"SDL_Init"
+			],
+			[
+				"de",
+				"def	#ifndef … #define … #endif"
+			],
+			[
+				"spe",
+				"sprite"
+			],
+			[
+				"win_",
+				"win_w"
+			],
+			[
+				"inpu",
+				"input_pressed"
+			],
+			[
+				"key",
+				"keystates"
+			],
+			[
+				"_rem",
+				"_remove_list"
+			],
+			[
+				"_re",
+				"_remove_list"
+			],
+			[
+				"ent",
+				"entities"
+			],
+			[
+				"en",
+				"entities"
+			],
+			[
+				"update",
+				"update_actor_list"
+			],
+			[
+				"add",
+				"add_list"
+			],
+			[
+				"b",
+				"b"
+			],
+			[
+				"entit",
+				"entities"
+			],
+			[
+				"win",
+				"win_h"
+			],
+			[
+				"TK",
+				"TK_UP"
+			],
+			[
+				"eng_upda",
+				"eng_update_actor_list"
+			],
+			[
+				"eng",
+				"eng_update"
+			],
+			[
+				"ent_",
+				"ent_created"
+			],
+			[
+				"terminal_re",
+				"terminal_refresh"
+			],
+			[
+				"termin",
+				"terminal_read"
+			],
+			[
+				"tile",
+				"tileset"
+			],
+			[
+				"entity",
+				"entity"
+			],
+			[
+				"eng_init",
+				"eng_init_SDL"
+			],
+			[
+				"S",
+				"SUBJ"
+			],
+			[
+				"make_",
+				"make_subject"
+			],
+			[
+				"srt",
+				"strmk"
+			],
+			[
+				"str",
+				"strmk"
+			],
+			[
+				"in",
+				"inventory"
+			],
+			[
+				"t_col",
+				"t_color_light"
+			],
+			[
+				"t",
+				"type"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"ent_n",
+				"ent_new_t"
+			],
+			[
+				"ent_new",
+				"ent_new_n"
+			],
+			[
+				"w",
+				"write_to"
+			],
+			[
+				"t_li",
+				"t_limb"
+			],
+			[
+				"seve",
+				"severed"
+			],
+			[
+				"t_lim",
+				"t_limb_head"
+			],
+			[
+				"t_co",
+				"t_corpse"
+			],
+			[
+				"bod",
+				"body"
+			],
+			[
+				"ent_d",
+				"ent_die"
+			],
+			[
+				"l",
+				"limbs"
+			],
+			[
+				"bo",
+				"body_is_equiped"
+			],
+			[
+				"rand",
+				"random"
+			],
+			[
+				"ent_da",
+				"ent_damage_direct"
+			],
+			[
+				"ent_ge",
+				"ent_get_defense_equiped"
+			],
+			[
+				"to",
+				"total"
+			],
+			[
+				"t_limb_l",
+				"t_limb_lhand"
+			],
+			[
+				"equ",
+				"equipable"
+			],
+			[
+				"o",
+				"owner"
+			],
+			[
+				"yo",
+				"your"
+			],
+			[
+				"eni",
+				"entity"
+			],
+			[
+				"po",
+				"power"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
+				"map",
+				"map_get_ent_alive"
+			],
+			[
+				"map_get",
+				"map_get_ent_alive"
+			],
+			[
+				"strcp",
+				"strncpy"
+			],
+			[
+				"st",
+				"strcpy"
+			],
+			[
+				"body",
+				"body_make"
+			],
+			[
+				"f",
+				"for	For Loop"
+			],
+			[
+				"va",
+				"variable"
+			],
+			[
+				"AS",
+				"ASSIGNS"
+			],
+			[
+				"lin",
+				"line"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"li",
+				"lineno"
+			],
+			[
+				"tx",
+				"txt_read"
+			],
+			[
+				"I",
+				"ITEM"
+			],
+			[
+				"y",
+				"your"
+			],
+			[
+				"eq",
+				"equipable"
+			],
+			[
+				"le",
+				"leg"
+			],
+			[
+				"p",
+				"printf	printf …"
+			],
+			[
+				"con_sc",
+				"con_scrbuf"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"map_is",
+				"map_is_outbounds"
+			],
+			[
+				"eng_re",
+				"eng_render"
+			],
+			[
+				"map_ca",
+				"map_can_walk"
+			],
+			[
+				"map_id",
+				"map_is_outbounds"
+			],
+			[
+				"map_co",
+				"map_compute_fov"
+			],
+			[
+				"prin",
+				"print"
+			],
+			[
+				"con_print",
+				"con_print_direct"
+			],
+			[
+				"t_",
+				"t_player"
+			],
+			[
+				"map_get_s",
+				"map_get_smell_amount"
+			],
+			[
+				"map_gett",
+				"map_get_tile"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"map_is_",
+				"map_is_solid"
+			],
+			[
+				"eng_",
+				"eng_waitkey"
+			],
+			[
+				"t_none",
+				"t_tile_none"
+			],
+			[
+				"nor",
+				"t_dir_north"
+			],
+			[
+				"t_roo",
+				"t_room_corridor"
+			],
+			[
+				"t_stai",
+				"t_stairsd"
+			],
+			[
+				"t_s",
+				"t_stairsu"
+			],
+			[
+				"map_",
+				"map_get_type"
+			],
+			[
+				"map_ge",
+				"map_get_type"
+			],
+			[
+				"t_do",
+				"t_door_open"
+			],
+			[
+				"t_doo",
+				"t_door_closed"
+			],
+			[
+				"t_di",
+				"t_dir"
+			],
+			[
+				"t_ro",
+				"t_room_corridor"
+			],
+			[
+				"nr",
+				"nrooms"
+			],
+			[
+				"N",
+				"NORTH"
+			],
+			[
+				"t_d",
+				"t_door"
+			],
+			[
+				"fo",
+				"fog_on"
+			],
+			[
+				"W",
+				"WEST"
+			],
+			[
+				"map_r",
+				"map_rect_is_type"
+			],
+			[
+				"ta",
+				"target"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"targe",
+				"targetx"
+			],
+			[
+				"ac",
+				"actors"
+			],
+			[
+				"do_",
+				"do_move_corner"
+			],
+			[
+				"ini",
+				"init_health"
+			],
+			[
+				"ent_mak",
+				"ent_make_corpse"
+			],
+			[
+				"enti",
+				"entity"
+			],
+			[
+				"ran",
+				"random"
+			],
+			[
+				"ch",
+				"charr"
+			],
+			[
+				"ha",
+				"health"
+			],
+			[
+				"con_",
+				"con_print"
+			],
+			[
+				"pr",
+				"printf	printf …"
+			],
+			[
+				"msg",
+				"msg_list"
+			],
+			[
+				"pos",
+				"t_post"
+			],
+			[
+				"_",
+				"_pst_num"
+			],
+			[
+				"map_re",
+				"map_rect_is_type"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/entity.h",
+			"settings":
+			{
+				"buffer_size": 1380,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/entity.c",
+			"settings":
+			{
+				"buffer_size": 500,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/graphic.c",
+			"settings":
+			{
+				"buffer_size": 3604,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/graphic.h",
+			"settings":
+			{
+				"buffer_size": 1209,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/make run 2.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					""
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"debug"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"clean"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"just make"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"remake"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck light"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck heavy"
+				]
+			],
+			[
+				"Packages/User/make run.sublime-build",
+				"remake"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					""
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"debug"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"clean"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"just make"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"remake"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck light"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck heavy"
+				]
+			],
+			[
+				"Packages/User/make run.sublime-build",
+				"remake"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/make run 2.sublime-build",
+					""
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"debug"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"clean"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"just make"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"remake"
+				]
+			],
+			[
+				"Packages/User/make run 2.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/make run 2.sublime-build",
+					""
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"debug"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"clean"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"just make"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"remake"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"memcheck"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"memcheck light"
+				],
+				[
+					"Packages/User/make run 2.sublime-build",
+					"memcheck heavy"
+				]
+			],
+			[
+				"Packages/User/make run 2.sublime-build",
+				"remake"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/make run.sublime-build",
+					""
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"debug"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"clean"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"just make"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"remake"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck light"
+				],
+				[
+					"Packages/User/make run.sublime-build",
+					"memcheck heavy"
+				]
+			],
+			[
+				"Packages/User/make run.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "Run",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git amm",
+				"Git: Amend Commit"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git sta",
+				"Git: Stash Apply"
+			],
+			[
+				"git s",
+				"Git: Status"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"rema",
+				"Build With: make run 2 - remake"
+			],
+			[
+				"if",
+				"Snippet: #ifndef … #define … #endif"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"ifn",
+				"Snippet: #ifndef … #define … #endif"
+			],
+			[
+				"snipp",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"while",
+				"Snippet: Do While Loop"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #ifndef … #define … #endif"
+			],
+			[
+				"re",
+				"Build: remake"
+			],
+			[
+				"cl",
+				"Build: clean"
+			],
+			[
+				"li",
+				"Build: memcheck light"
+			],
+			[
+				"mem",
+				"Build: memcheck"
+			],
+			[
+				"he",
+				"Build: memcheck heavy"
+			],
+			[
+				"me",
+				"Build: memcheck heavy"
+			],
+			[
+				"de",
+				"Build: debug"
+			],
+			[
+				"c",
+				"Set Syntax: C"
+			],
+			[
+				"set li",
+				"Set Syntax: Lisp"
+			],
+			[
+				"ma",
+				"Build: just make"
+			],
+			[
+				"mak",
+				"Build: just make"
+			],
+			[
+				"ew",
+				"Snippet: Do While Loop"
+			],
+			[
+				"hea",
+				"Build: memcheck heavy"
+			],
+			[
+				"sni",
+				"Snippet: #ifndef … #define … #endif"
+			],
+			[
+				"cle",
+				"Build: clean"
+			],
+			[
+				"ligh",
+				"Build: memcheck light"
+			],
+			[
+				"app",
+				"Build: appverif"
+			],
+			[
+				"ap",
+				"Build: appverif"
+			],
+			[
+				"rew",
+				"Preferences: Browse Packages"
+			],
+			[
+				"gi",
+				"Build: git"
+			],
+			[
+				"Snippet: if",
+				"Snippet: #ifndef … #define … #endif"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"gui",
+				"Git: Gui"
+			],
+			[
+				"gitg",
+				"Git: Gitk"
+			],
+			[
+				"git g",
+				"Git: Gui"
+			],
+			[
+				"ign",
+				"Git: Update Project Ignored Files"
+			],
+			[
+				"git ig",
+				"Git: Update Project Ignored Files"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"mrm",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"git ",
+				"Git: Gui"
+			],
+			[
+				"diff",
+				"Git: Diff Current File"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"do",
+				"DocBlockr: Reparse comment block"
+			],
+			[
+				"mal",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"tr",
+				"Set Syntax: R"
+			],
+			[
+				"xl",
+				"Set Syntax: LaTeX Log"
+			],
+			[
+				"deb",
+				"Build: debug"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"1",
+				"Rot13 Selection"
+			],
+			[
+				"mmak",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"jus",
+				"Build: just make"
+			],
+			[
+				"ju",
+				"Build: just make"
+			],
+			[
+				"nak",
+				"Set Syntax: Makefile"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"ph",
+				"Build: clean phony"
+			],
+			[
+				"pho",
+				"Build: clean phony"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"git a",
+				"Git: Amend Commit"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"git puch",
+				"Git: Push Current Branch"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 188.0,
+		"history":
+		[
+			"make run",
+			"git",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/herror/Desktop/stark",
+		"/C/Users/herror/Desktop/stark/src"
+	],
+	"file_history":
+	[
+		"/C/Users/herror/Desktop/stark/src/stark.c",
+		"/C/Users/herror/Desktop/headhunter/src/entity.h",
+		"/C/Users/herror/Desktop/stark/src/entity.c",
+		"/C/Users/herror/Desktop/stark/src/screen.c",
+		"/C/Users/herror/Desktop/stark/src/stark.h",
+		"/C/Users/herror/Desktop/headhunter/src/util.h",
+		"/C/Users/herror/Desktop/stark/src/entity.h",
+		"/C/Users/herror/Desktop/stark/src/graphic.h",
+		"/C/Users/herror/Desktop/pona/engine.h",
+		"/C/Users/herror/Desktop/stark/stark/res/bg.bmp",
+		"/C/Users/herror/Desktop/stark/src/input.c",
+		"/C/Users/herror/Desktop/headhunter/src/ai.c",
+		"/C/Users/herror/Desktop/headhunter/src/ai.h",
+		"/C/Users/herror/Desktop/headhunter/src/entity.c",
+		"/C/Users/herror/Desktop/pona/engine.c",
+		"/C/Users/herror/Desktop/stark/stark/res/gfx.bmp",
+		"/C/Users/herror/Desktop/stark/src/screen.h",
+		"/C/Users/herror/Desktop/stark/stark.sublime-project",
+		"/C/_work/gams/Oaks.gmx/rooms/room0.room.gmx",
+		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/make run 2.sublime-build",
+		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/make run.sublime-build",
+		"/C/Users/herror/Desktop/stark/makefile",
+		"/C/Users/herror/Desktop/mag/src/stark.h",
+		"/C/Users/herror/Desktop/headhunter/src/engine.c",
+		"/C/Users/herror/Desktop/mag/src/screen.h",
+		"/C/Users/herror/Desktop/mag/src/screen.c",
+		"/C/Users/herror/Desktop/mag/src/entity.c",
+		"/C/Users/herror/Desktop/mag/src/entity.h",
+		"/C/Users/herror/Desktop/mag/src/graphic.h",
+		"/C/Users/herror/Desktop/mag/src/stark.c",
+		"/C/Users/herror/Desktop/mag/src/input.c",
+		"/C/Users/herror/Desktop/mag/src/input.h",
+		"/C/Users/herror/Desktop/mag/src/main.c",
+		"/C/Users/herror/Desktop/mag/src/graphic.c",
+		"/C/Users/herror/Desktop/mag/src/list.c",
+		"/C/Users/herror/Desktop/mag/src/engine.h",
+		"/C/Program Files/Steam/steamapps/common/Dark Souls Prepare to Die Edition/DATA/DSfix.ini",
+		"/C/_work/gams/Marsh/Marsh.cbp",
+		"/C/Users/herror/Desktop/mag/src/engine.c",
+		"/C/Users/herror/Desktop/pona/entity.c",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.245/README.txt",
+		"/C/Users/herror/Desktop/mag/mag.sublime-project",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.136/07_texture_loading_and_rendering.cpp",
+		"/C/Users/herror/Desktop/mag/src/scene.h",
+		"/C/Users/herror/Desktop/mag/.gitignore",
+		"/C/Users/herror/Desktop/mag/mag.sublime-workspace",
+		"/C/Users/herror/Desktop/mag/src/scene.c",
+		"/C/Users/herror/Desktop/pona/ai.c",
+		"/C/_work/gams/Marsh/Input.cpp",
+		"/C/_work/gams/Marsh/Input.hpp",
+		"/C/Users/herror/Desktop/mag/src/list.h",
+		"/C/Users/herror/Desktop/headhunter/src/list.h",
+		"/C/Users/herror/Desktop/headhunter/src/list.c",
+		"/C/Users/herror/Desktop/headhunter/src/engine.h",
+		"/C/Users/herror/Desktop/pona/entity.h",
+		"/C/Users/herror/Desktop/mag/makefile",
+		"/C/Users/herror/Desktop/mag/src/vector.c",
+		"/C/Users/herror/Desktop/mag/src/vector.h",
+		"/C/Users/herror/Desktop/headhunter/src/main.c",
+		"/C/Users/herror/Desktop/mag/entity.h",
+		"/C/Users/herror/Desktop/kore/include/Engine.h",
+		"/C/Users/herror/Desktop/kore/src/Engine.cpp",
+		"/C/Users/herror/Desktop/kore/src/cApp.cpp",
+		"/C/Users/herror/Desktop/kore/include/cApp.h",
+		"/C/Users/herror/Desktop/kore/include/kore.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.129/main.cpp",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.318/cApp.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.934/cApp.cpp",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.663/example.cpp",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.098/example.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.201/cInput.cpp",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.474/Engine.cpp",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.051/Singleton.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.147/Engine.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.333/cInput.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.042/keys.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.252/cApp.cpp",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.696/example.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.909/example.cpp",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.983/cApp.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.325/main.cpp",
+		"/C/Users/herror/Desktop/headhunter/makefile",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.154/example.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.481/cApp.h",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.872/main.cpp",
+		"/C/Users/herror/Desktop/Corange-master/Makefile",
+		"/C/sdl2/i686-w64-mingw32/bin/sdl2-config",
+		"/C/Users/herror/Desktop/pona/main.c",
+		"/C/_work/gams/Oaks.gmx/scripts/script0.gml",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.340/Readme.txt",
+		"/C/Program Files/CodeBlocks/share/CodeBlocks/templates/wizard/config.script",
+		"/C/Users/herror/Desktop/ragalaka/main.py",
+		"/C/sdl2/PySDL2-0.9.3/setup.py",
+		"/C/Users/herror/Desktop/ondras-rot.js-74117c6/tests/index.html",
+		"/C/Users/herror/Desktop/T3D-master/src/main.c",
+		"/C/Users/herror/Desktop/T3D-master/README.md",
+		"/C/_work/gams/tardig - Copy/src/ai.c",
+		"/C/_work/gams/tardig/src/entity.c",
+		"/C/_work/gams/tardig - Copy/src/do.c",
+		"/C/_work/gams/tardig/src/map.h",
+		"/C/_work/gams/tardig/src/do.c",
+		"/C/_work/gams/tardig/src/ai.h",
+		"/C/_work/gams/tardig/src/ai.c",
+		"/C/_work/gams/tardig/makefile",
+		"/C/_work/gams/tardig/src/entity.h",
+		"/C/_work/gams/tardig/src/engine.c",
+		"/C/_work/gams/tardig/src/engine.h",
+		"/C/Users/herror/Desktop/elc/readme.txt",
+		"/C/Users/herror/Desktop/endless_ladder_climbing_2_source/readme.txt",
+		"/C/_work/gams/tardig/src/map.c",
+		"/C/_work/gams/tardig/src/do.h",
+		"/C/Users/herror/Desktop/headhunter/src/do.c",
+		"/C/_work/gams/tardig/src/util.h",
+		"/C/Users/herror/Desktop/src/map.cpp",
+		"/C/_work/gams/tardig/BearLibTerminal.h",
+		"/C/Users/herror/Desktop/src/map.h",
+		"/C/Users/herror/Desktop/src/rooms/valley.map",
+		"/C/Users/herror/Desktop/src/rooms/piecelist.map",
+		"/C/Users/herror/Desktop/disq/src/ai.h",
+		"/C/Users/herror/Desktop/disq/src/engine.c",
+		"/C/SDKs/BearLibTerminal_0121/Include/C/BearLibTerminal.h",
+		"/C/_work/gams/tardig/src/list.h",
+		"/C/Users/herror/Desktop/disq/src/entity.c",
+		"/C/Users/herror/Desktop/disq/src/entity.h",
+		"/C/_work/gams/tardig/src/main.c",
+		"/C/Users/herror/Desktop/disq/src/engine.h",
+		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"frames",
+			"anim",
+			"curr",
+			"make ",
+			"free",
+			"_MIN",
+			"engine",
+			"text",
+			"format",
+			"false",
+			"true",
+			"bool",
+			"list_t",
+			"(list)",
+			"entity*",
+			"scene*",
+			"list_t",
+			"bool",
+			"entity ",
+			"list ",
+			"remove_list",
+			"add_list",
+			"List",
+			"false",
+			"true",
+			"list_t",
+			"bool",
+			"Vector",
+			";",
+			"/build",
+			"optimize_surf",
+			"SDL_CreateTextureFromSurface",
+			"INC",
+			"install",
+			"->",
+			"map_can_walk",
+			"do_move",
+			"map_is_free",
+			"targety",
+			"targetx",
+			"dir",
+			"color_fr",
+			"i",
+			"pressed",
+			"k == ",
+			";",
+			"eng_render",
+			"eng_end",
+			"alt+up",
+			"up",
+			"\\",
+			"_imp_term",
+			"/",
+			"lib",
+			"who",
+			"bracke",
+			"owner",
+			"size",
+			"tile",
+			"tile ",
+			"cam",
+			"actors_",
+			"i_subject",
+			"str",
+			"noun",
+			"to",
+			"the",
+			"\"the\"",
+			"msg",
+			"unprotected",
+			"iron",
+			"eng_ask_inventory",
+			"hum",
+			"pn",
+			"use",
+			"eat",
+			"human",
+			"body_has_limb",
+			"t_player",
+			"you",
+			"render",
+			"log",
+			"degrade_equiped",
+			"out",
+			"new",
+			"table",
+			"table_edito",
+			"  ",
+			" ",
+			"remove",
+			"space",
+			"strcpy",
+			"esca",
+			"ent_severe_limb",
+			"How To Start",
+			"con_",
+			"dama",
+			"_U",
+			"log",
+			"body_name",
+			"dama",
+			"printf",
+			"e->",
+			"map_compute_fov",
+			"arr",
+			"use",
+			"equ",
+			"rodent",
+			"humanoid",
+			"ent_new",
+			"=",
+			"pickable",
+			")))",
+			"(v = ",
+			"ent_new",
+			"atobool",
+			":",
+			"txt_get_value",
+			"user",
+			"start",
+			"ini_parse",
+			"user",
+			"handler",
+			"curr",
+			"fp",
+			"legs",
+			"arms",
+			"legs_name"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"frame_sequence",
+			"make && cd $project_base_name ",
+			"delete",
+			"___MIN___",
+			"stark",
+			"0",
+			"1",
+			"int",
+			"List",
+			"Entity",
+			"Scene",
+			"List",
+			"int",
+			"Entity ",
+			"List ",
+			"_remove_list",
+			"_add_list",
+			"list",
+			"0",
+			"1",
+			"List",
+			"int",
+			"vector",
+			"{}",
+			"",
+			".",
+			"map_is_free",
+			"do_move_attack",
+			"do_move_corner",
+			"map_can_walk",
+			"ytarget",
+			"xtarget",
+			"target",
+			"terminal_check(",
+			"{}",
+			"eng_draw",
+			"eng_delete",
+			"/",
+			"\\",
+			"e",
+			"",
+			"name",
+			"",
+			"msg_st",
+			"",
+			"body_limb_count",
+			"t_human",
+			"human",
+			"new_t",
+			"",
+			"strmk",
+			"",
+			"&& !",
+			"))",
+			"",
+			"atob",
+			"=",
+			"line",
+			"f",
+			"leg",
+			"arm",
+			"leg_name",
+			"arm_name",
+			"leg_name",
+			"t_limb",
+			"e",
+			"eng_ask_direction(e, false)",
+			"u",
+			"last",
+			"con_print_direct",
+			"t.",
+			"map_get_tile(x, y).",
+			"map_get_tile(x, y)",
+			"map_w]->",
+			"map_tiles[x + y * map_w]->",
+			"t_door_open",
+			"map_make_dung",
+			"t_dir_west",
+			"t_dir_south",
+			"t_dir_east",
+			"t_dir_west",
+			"r_dir_west",
+			"r_dir_south",
+			"r_dir_east",
+			"r_dir_north",
+			"map_make_cave",
+			"get_random_wall",
+			"x1",
+			"y2",
+			"x2",
+			"n",
+			"los(cam.x, cam.y, (*i)->x, (*i)->y)",
+			"los(cam.x, cam.y, u->x, u->y)",
+			"y2",
+			"false",
+			"true",
+			"y1",
+			"x1",
+			"y2",
+			"x2",
+			"m",
+			"y1",
+			"x1",
+			"dx",
+			"dy",
+			"]->",
+			"ai",
+			"u",
+			"SPEED_NORMAL",
+			"e",
+			"dy",
+			"dx",
+			"e",
+			"o",
+			"y",
+			"x",
+			"e->",
+			"msg",
+			"post",
+			"((p = map_get_rand(t_empty)))",
+			"t_mon",
+			"t_tile",
+			"\\\\",
+			"\\",
+			"\\\\",
+			"",
+			"CC",
+			"\\"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/entity.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								944,
+								944
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/entity.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 500,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								447,
+								447
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 148.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/graphic.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1223,
+								1223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 467.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/graphic.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								855,
+								858
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 131.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.astyle_error_message":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 163.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 148.0
+	},
+	"pinned_build_system": "Packages/User/make run 2.sublime-build",
+	"project": "stark.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sta",
+				"src\\stark.c"
+			],
+			[
+				"mak",
+				"makefile"
+			],
+			[
+				"rng",
+				"src\\engine.c"
+			],
+			[
+				"ent",
+				"src\\entity.h"
+			],
+			[
+				"map",
+				"src\\map.c"
+			],
+			[
+				"eng",
+				"src\\engine.c"
+			],
+			[
+				"do",
+				"src\\do.c"
+			],
+			[
+				"ai",
+				"src\\ai.c"
+			],
+			[
+				"ba",
+				"BearLibTerminal.h"
+			],
+			[
+				"bear",
+				"BearLibTerminal.h"
+			],
+			[
+				"uti",
+				"src\\util.h"
+			],
+			[
+				"ma",
+				"makefile"
+			],
+			[
+				"be",
+				"BearLibTerminal.h"
+			],
+			[
+				"util",
+				"src\\util.h"
+			],
+			[
+				"te",
+				"src\\text.c"
+			],
+			[
+				"corp",
+				"C:\\Users\\herror\\AppData\\Roaming\\Sublime Text 3\\Packages\\User\\make run.sublime-build"
+			],
+			[
+				"make",
+				"makefile"
+			],
+			[
+				"lo",
+				"src\\los.h"
+			],
+			[
+				"ut",
+				"src\\util.h"
+			],
+			[
+				"list",
+				"src\\list.h"
+			],
+			[
+				"lis",
+				"src\\list.h"
+			],
+			[
+				"mai",
+				"src\\main.c"
+			],
+			[
+				"main",
+				"src\\main.c"
+			],
+			[
+				"mia",
+				"src\\main.c"
+			],
+			[
+				"u",
+				"src\\util.h"
+			],
+			[
+				"it",
+				"src\\entity.c"
+			],
+			[
+				"en",
+				"src\\entity.c"
+			],
+			[
+				"li",
+				"src\\list.h"
+			],
+			[
+				"",
+				"src\\entity.h"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\herror\\Desktop\\ragalaka\\ragalaka.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 35.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"spr",
+				"Sprite"
+			],
+			[
+				"deb",
+				"debug"
+			],
+			[
+				"",
+				"STARK_H"
+			],
+			[
+				"exe",
+				"stark_execute"
+			],
+			[
+				"star",
+				"STARK_H"
+			],
+			[
+				"ent",
+				"entity_new"
+			],
+			[
+				"ini",
+				"input_init"
+			],
+			[
+				"init",
+				"stark_init"
+			],
+			[
+				"inp",
+				"input_init"
+			],
+			[
+				"dist",
+				"distance"
+			],
+			[
+				"sta",
+				"stark_execute"
+			],
+			[
+				"eng",
+				"eng_update_actor_list"
+			],
+			[
+				"scee",
+				"Scene"
+			],
+			[
+				"spri",
+				"sprite_draw"
+			],
+			[
+				"main",
+				"main"
+			],
+			[
+				"opti",
+				"optimize_surf"
+			],
+			[
+				"engin",
+				"ENGINE_H"
+			],
+			[
+				"in",
+				"INPUT_H"
+			],
+			[
+				"scene",
+				"Scene"
+			],
+			[
+				"scen",
+				"scene"
+			],
+			[
+				"sce",
+				"scene"
+			],
+			[
+				"list",
+				"list_begin"
+			],
+			[
+				"list beg",
+				"list_begin"
+			],
+			[
+				"do mo",
+				"do_move_attack"
+			],
+			[
+				"atta",
+				"do_move_attack"
+			],
+			[
+				"wander",
+				"ai_wander"
+			],
+			[
+				"eng_add",
+				"eng_add"
+			],
+			[
+				"mk",
+				"map_mk"
+			],
+			[
+				"ai",
+				"ai_pj"
+			],
+			[
+				"dama",
+				"ent_damage"
+			],
+			[
+				"atob",
+				"atob"
+			],
+			[
+				"pj",
+				"ai_pj"
+			],
+			[
+				"ask",
+				"eng_ask_inventory"
+			],
+			[
+				"anim",
+				"ai_animal"
+			],
+			[
+				"stris",
+				"stris"
+			],
+			[
+				"bod",
+				"body"
+			],
+			[
+				"wand",
+				"ai_wander"
+			],
+			[
+				"name",
+				"ent_name_to_type"
+			],
+			[
+				"eat",
+				"use_eat"
+			],
+			[
+				"leav",
+				"ent_leave_inventory"
+			],
+			[
+				"drop",
+				"do_drop"
+			],
+			[
+				"use",
+				"use_dig_tool"
+			],
+			[
+				"corp",
+				"ent_make_corpse"
+			],
+			[
+				"die",
+				"ent_die"
+			],
+			[
+				"cor",
+				"ent_make_corpse"
+			],
+			[
+				"tob",
+				"atob"
+			],
+			[
+				"cotp",
+				"con_putch"
+			],
+			[
+				"add",
+				"eng_add"
+			],
+			[
+				"setl",
+				"body_set_limb"
+			],
+			[
+				"do",
+				"do_throw"
+			],
+			[
+				"new",
+				"ent_new"
+			],
+			[
+				"th",
+				"do_throw"
+			],
+			[
+				"mai",
+				"main"
+			],
+			[
+				"dig",
+				"do_dig"
+			],
+			[
+				"di_",
+				"do_dig"
+			],
+			[
+				"move",
+				"do_move_attack"
+			],
+			[
+				"depth",
+				"t_depth"
+			],
+			[
+				"do d",
+				"do_dig"
+			],
+			[
+				"dun",
+				"map_make_dung"
+			],
+			[
+				"sdl",
+				"eng_init_SDL"
+			],
+			[
+				"sd",
+				"eng_init_SDL"
+			],
+			[
+				"nwe",
+				"ent_new_mon"
+			],
+			[
+				"do di",
+				"do_dig"
+			],
+			[
+				"ren",
+				"map_render"
+			],
+			[
+				"are",
+				"map_get_smell_area"
+			],
+			[
+				"map",
+				"map_is_outbounds"
+			],
+			[
+				"get ",
+				"eng_getch"
+			],
+			[
+				"free",
+				"ent_free"
+			],
+			[
+				"pic",
+				"do_pick"
+			],
+			[
+				"aliv",
+				"map_get_ent_alive"
+			],
+			[
+				"bou",
+				"map_is_outbounds"
+			],
+			[
+				"get t",
+				"map_get_type"
+			],
+			[
+				"get_random_wall               ",
+				"get_random_wall"
+			],
+			[
+				"get r",
+				"map_get_rand"
+			],
+			[
+				"ra",
+				"map_get_rand"
+			],
+			[
+				"a",
+				"do_attack"
+			],
+			[
+				"att",
+				"do_move_attack"
+			],
+			[
+				"set t",
+				"map_set_tile"
+			],
+			[
+				"dr",
+				"con_drawch"
+			],
+			[
+				"t_co",
+				"t_color"
+			],
+			[
+				"dra",
+				"con_drawch"
+			],
+			[
+				"cle",
+				"con_clear"
+			],
+			[
+				"rend",
+				"eng_render"
+			],
+			[
+				"cop",
+				"con_print"
+			],
+			[
+				"do ",
+				"do_move_attack"
+			],
+			[
+				"re",
+				"map_render"
+			],
+			[
+				"clea",
+				"con_clear"
+			],
+			[
+				"crop",
+				"ent_make_corpse"
+			],
+			[
+				"del",
+				"eng_delete"
+			],
+			[
+				"post",
+				"post"
+			],
+			[
+				"up",
+				"eng_update"
+			],
+			[
+				"chan",
+				"map_change"
+			],
+			[
+				"map re",
+				"map_render"
+			],
+			[
+				"put",
+				"con_putch"
+			],
+			[
+				"cav",
+				"map_rand_cave"
+			],
+			[
+				"map de",
+				"map_delete"
+			],
+			[
+				"draw",
+				"eng_draw"
+			],
+			[
+				"map m",
+				"map_mk"
+			],
+			[
+				"poi",
+				"point"
+			],
+			[
+				"make",
+				"ent_make_corpse"
+			],
+			[
+				"mak",
+				"ent_make_corpse"
+			],
+			[
+				"co",
+				"ent_make_corpse"
+			],
+			[
+				"mon",
+				"t_mon"
+			],
+			[
+				"wait",
+				"eng_waitkey"
+			],
+			[
+				"is",
+				"map_is_solid"
+			],
+			[
+				"do m",
+				"do_move_attack"
+			],
+			[
+				"pos",
+				"post"
+			],
+			[
+				"ch",
+				"map_change"
+			],
+			[
+				"fre",
+				"ent_free"
+			],
+			[
+				"room",
+				"map_rand_rooms"
+			],
+			[
+				"get ran",
+				"map_get_rand"
+			],
+			[
+				"ran",
+				"map_get_rand"
+			],
+			[
+				"gett ",
+				"map_get_type"
+			],
+			[
+				"wai",
+				"do_wait"
+			],
+			[
+				"ty",
+				"type_mon"
+			],
+			[
+				"t_m",
+				"type_mon"
+			],
+			[
+				"t_en",
+				"list_end"
+			],
+			[
+				"new i",
+				"ent_new_item"
+			],
+			[
+				"heal",
+				"health"
+			],
+			[
+				"hea",
+				"health"
+			],
+			[
+				"pr",
+				"con_print"
+			],
+			[
+				"pto",
+				"point"
+			],
+			[
+				"get_r",
+				"map_get_rand"
+			],
+			[
+				"get_en",
+				"map_get_ent"
+			],
+			[
+				"pri",
+				"con_print"
+			],
+			[
+				"cate",
+				"list_allocate_int"
+			],
+			[
+				"upd",
+				"eng_update_actor_list"
+			],
+			[
+				"til",
+				"tile"
+			]
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 176.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
