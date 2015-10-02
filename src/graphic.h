@@ -7,6 +7,11 @@
 
 typedef SDL_Rect Rect;
 
+typedef struct {
+	unsigned int r, g, b;
+} Color;
+
+
 /** sprites are 2D images, animated */
 typedef struct sprite {
 	SDL_Texture* 	texture;
@@ -18,28 +23,29 @@ typedef struct sprite {
 
 	int 		depth;				//rendering depth
 
-	string 		frames;				//sequence of frames to animate: "0134"
-	float		frame_index;			//frame to draw
-
-	float		current_frame, animation_speed,	//(int)current_frame
-	                xscale, yscale;
-	int		alpha;				//0-255
-	float 		angle;
+	string 		frame_sequence;			//sequence of frames to animate: "0134"
+	float		frame_index,			//frame to draw
+	                frame_rate,			//milliseconds
+	                xscale, yscale,
+	                angle;
+	unsigned int	alpha;				//0-255
 	bool		flip;				//horizontal mirroring
 
-	//scale
-	//angle
-	//flip
+	//private
+	long	_oldtime; 	//animation time leftovers
+	long	_frame_index; 	//the real deal
+	int	_frames_max; 	//max of frames in the sequence
+
 } sprite;
 
 typedef struct sprite* Sprite;
 
-Sprite 	sprite_new(string path, int w, int h, string frames);
+Sprite 	sprite_new(string path, int w, int h, string frame_sequence);
 void 	sprite_delete(Sprite s);
 bool 	sprite_update(Sprite s);
 bool 	sprite_draw(Sprite s, int frame, int x, int y);
 
-
+void 	sprite_set_scale(Sprite s, float xscale, float yscale);
 
 
 

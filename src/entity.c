@@ -23,6 +23,7 @@ Entity entity_new(string name, int x, int y) {
 
 void entity_delete(Entity e) {
 	free(e);
+	e = NULL;
 }
 
 void entity_update(Entity e) {
@@ -30,6 +31,5 @@ void entity_update(Entity e) {
 }
 
 void entity_draw(Entity e) {
-	if (!e->sprite) { return; }
 	sprite_draw(e->sprite, 0, e->x, e->y); //wippp image_index
 }
