@@ -1,6 +1,5 @@
 #include "audio.h"
 
-
 bool audio_init() {
 	if (Mix_Init(0) < 0) {
 		debug("failed to init audio, %s", SDL_GetError());

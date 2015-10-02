@@ -19,12 +19,11 @@ bool stark_execute() {
 	//if (!stark_init()) { return false; }
 
 	///////////
-	Entity e = entity_new("test entity >:0", 200, 200);
+	Entity e = entity_new("test entity >:0", 0, 0);
 	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "012321");
-	sprite_set_scale(e->sprite, 20, 20);
+	sprite_set_scale(e->sprite, 10, 10);
 	////////////
-	Sound s = sound_load("res/popogotchi.wav");
-	sound_play(s, 10);
+	music_play(music_load("res/nervously.ogg"), true, 10);
 
 	while (1) {
 		if (!input_update()) { break; }
@@ -47,9 +46,9 @@ bool stark_execute() {
 bool stark_init() {
 	SDL_Init(0);
 
-	screen_init("Title", 800, 600);
-	audio_init();
-	input_init();
+	if (!screen_init("Title", 800, 600, 1)) { return false; }
+	if (!audio_init()) { return false; }
+	if (!input_init()) { return false; }
 	//etc
 
 	atexit(SDL_Quit);
@@ -61,7 +60,7 @@ bool stark_quit() {
 	audio_quit();
 	input_quit();
 
-	return SUCCESS;
+	return 0; //success, whatever
 }
 
 

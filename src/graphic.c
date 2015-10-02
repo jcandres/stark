@@ -5,7 +5,7 @@ SDL_Texture* load_texture(string path);
 /**
  * Screen handling
  */
-bool screen_init(const char* title, int w, int h) {
+bool screen_init(const char* title, int w, int h, int zoom) {
 	scr_zoom = 1;
 	win_title = title;
 	win_w = w;
@@ -18,7 +18,11 @@ bool screen_init(const char* title, int w, int h) {
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (!renderer) { debug("failed to create renderer, %s", SDL_GetError()); return false; }
-	SDL_RenderSetLogicalSize(renderer, win_w * scr_zoom, win_h * scr_zoom);
+
+	if (zoom > 0) {
+		scr_zoom = zoom;
+		SDL_RenderSetLogicalSize(renderer, win_w / zoom, win_h / zoom);
+	}
 
 	//init true font
 	//if (TTF_Init() < 0) { debug("TTF_Init: %s\n", TTF_GetError()); exit(2); }
@@ -176,6 +180,7 @@ bool sprite_draw(Sprite s, int x, int y) {
 }
 
 void sprite_set_scale(Sprite s, float xscale, float yscale) {
+	if (xscale <= 0 || yscale <= 0) { return; }
 	s->xscale = xscale;
 	s->yscale = yscale;
 }

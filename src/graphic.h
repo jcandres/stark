@@ -18,7 +18,7 @@ int 	win_w, win_h;
 const char* win_title;
 int 	scr_zoom;
 
-bool 	screen_init(const char* title, int w, int h);
+bool 	screen_init(const char* title, int w, int h, int zoom);
 bool 	screen_render();
 void 	screen_quit();
 

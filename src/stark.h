@@ -5,8 +5,9 @@
  *
  * 		STARK is a framework for easing game development.
  *
+ *	 		http://suckless.org/philosophy
  *
- * Stark allows for quick prototyping and respects your sanity.
+ *
  * Provides boilerplate code to build apps on top of the library SDL2, taking
  * care of entity management, input checking, sprite display and animation,
  * sound and music playing, etc.
@@ -44,8 +45,6 @@
 
 /** syntax */
 typedef enum { false, true } bool;
-#define SUCCESS 0
-#define FAILURE -1
 
 /** debug */
 #define debug(M, ...) printf( "\nDEBUG %s:%d:\n  " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
