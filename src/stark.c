@@ -1,41 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL.h>
+#include <SDL_mixer.h>
 
 #include "list.h"
 
 #include "stark.h"
-#include "screen.h"
 #include "audio.h"
 #include "input.h"
 #include "scene.h"
 #include "entity.h"
 
 
-bool 	stark_init();
-bool 	stark_end();
+bool 	stark_quit();
 void	get_fps();
 
 bool stark_execute() {
-	if (!stark_init()) { return false; }
+	//if (!stark_init()) { return false; }
 
 	///////////
 	Entity e = entity_new("test entity >:0", 200, 200);
 	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "012321");
 	sprite_set_scale(e->sprite, 20, 20);
 	////////////
-
-	Sound s = sound_load("res/popo.wav");
-	Music m = music_load("res/notes.wav");
+	Sound s = sound_load("res/popogotchi.wav");
 	sound_play(s, 10);
-	music_play(m, true, 30);
-
 
 	while (1) {
 		if (!input_update()) { break; }
 
 		if (input_pressed(KEY_ESCAPE)) {break;} //debug hack
-		if (input_pressed(KEY_SPACE)) {sound_play(s, 100);} //debug hack
+
 		get_fps();
 		entity_update(e); /////////
 		entity_draw(e); /////////
@@ -45,7 +40,7 @@ bool stark_execute() {
 	}
 
 
-	return stark_end();
+	return stark_quit();
 }
 
 
@@ -53,15 +48,19 @@ bool stark_init() {
 	SDL_Init(0);
 
 	screen_init("Title", 800, 600);
-	input_init();
 	audio_init();
+	input_init();
 	//etc
 
 	atexit(SDL_Quit);
 	return true;
 }
 
-bool stark_end() {
+bool stark_quit() {
+	screen_quit();
+	audio_quit();
+	input_quit();
+
 	return SUCCESS;
 }
 

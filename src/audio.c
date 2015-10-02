@@ -3,17 +3,19 @@
 
 bool audio_init() {
 	if (Mix_Init(0) < 0) {
-		debug("failed to init audio, %s", SDL_GetError()); return false;
+		debug("failed to init audio, %s", SDL_GetError());
+		return false;
 	}
 
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
-		debug("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError()); return false;
+		debug("SDL_mixer could not initialize: %s\n", Mix_GetError());
+		return false;
 	}
 
 	return true;
 }
 
-void audio_end() {
+void audio_quit() {
 	Mix_Quit();
 	Mix_CloseAudio();
 }

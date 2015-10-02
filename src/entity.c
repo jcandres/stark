@@ -31,5 +31,5 @@ void entity_update(Entity e) {
 }
 
 void entity_draw(Entity e) {
-	sprite_draw(e->sprite, 0, e->x, e->y); //wippp image_index
+	sprite_draw(e->sprite, e->x, e->y); //wippp image_index
 }

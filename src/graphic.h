@@ -2,17 +2,34 @@
 #define GRAPHIC_H
 
 #include <SDL.h>
+//#include <SDL_ttf.h>
 #include "stark.h"
-#include "list.h"
 
-typedef SDL_Rect Rect;
+/**
+ * Graphic.h includes window and screen handling
+ * and sprite loading and rendering
+ */
 
-typedef struct {
-	unsigned int r, g, b;
-} Color;
+/** Window and Screen */
+SDL_Window* window;
+SDL_Renderer* renderer;
+
+int 	win_w, win_h;
+const char* win_title;
+int 	scr_zoom;
+
+bool 	screen_init(const char* title, int w, int h);
+bool 	screen_render();
+void 	screen_quit();
+
+/**
+ * Types
+ */
+typedef SDL_Rect* Rect;
+typedef SDL_Color* Color;
 
 
-/** sprites are 2D images, animated */
+/** Sprites are 2D images, with animation capabilities */
 typedef struct sprite {
 	SDL_Texture* 	texture;
 	string		name;
@@ -43,7 +60,7 @@ typedef struct sprite* Sprite;
 Sprite 	sprite_new(string path, int w, int h, string frame_sequence);
 void 	sprite_delete(Sprite s);
 bool 	sprite_update(Sprite s);
-bool 	sprite_draw(Sprite s, int frame, int x, int y);
+bool 	sprite_draw(Sprite s, int x, int y);
 
 void 	sprite_set_scale(Sprite s, float xscale, float yscale);
 

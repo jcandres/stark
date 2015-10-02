@@ -5,14 +5,18 @@
 #include "stark.h"
 #include "keys.h"
 
-int 	mouse_x, mouse_y;
+/** Input system */
+bool 	input_init();
+bool 	input_update(); //false if EXIT
+void 	input_quit();
 
+
+/** Input checking */
 bool 	input_check(Key k);
 bool 	input_pressed(Key k);
 bool 	input_released(Key k);
-
-bool 	input_init();
-bool 	input_update(); //false if EXIT
+int 	input_mouse_x();
+int 	input_mouse_y();
 
 //callbacks here
 //virtual void onKeyDown(SDL_Keycode sym, Uint16 mod, Uint16 scancode) { } ; etc etc

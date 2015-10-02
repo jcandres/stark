@@ -20,11 +20,14 @@ typedef Mix_Music* Music;
 /** audio system */
 
 bool 	audio_init();
-void 	audio_end();
+void 	audio_quit();
 
 
-/** sounds */
+/** Sounds
 
+Sound s = sound_load("res/popo.wav");
+sound_play(s, 10);
+*/
 Sound	sound_load(string path);
 void	sound_delete(Sound snd);
 void	sound_play(Sound snd, int volume); //volume is percent
@@ -32,7 +35,11 @@ void	sound_play(Sound snd, int volume); //volume is percent
 ///todo sound callbacks
 
 
-/** music */
+/** Music
+
+Music m = music_load("res/notes.wav");
+music_play(m, true, 30);
+*/
 
 Music	music_load(string path);
 void	music_delete(Music mus);

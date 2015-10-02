@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"U",
+				"Uint8"
+			],
+			[
 				"til",
 				"tile_y"
 			],
@@ -510,36 +514,24 @@
 			[
 				"_",
 				"_pst_num"
-			],
-			[
-				"map_re",
-				"map_rect_is_type"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/entity.h",
+			"file": "src/audio.c",
 			"settings":
 			{
-				"buffer_size": 1380,
+				"buffer_size": 1408,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/entity.c",
+			"file": "makefile",
 			"settings":
 			{
-				"buffer_size": 500,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/graphic.c",
-			"settings":
-			{
-				"buffer_size": 3604,
+				"buffer_size": 941,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,7 +539,31 @@
 			"file": "src/graphic.h",
 			"settings":
 			{
-				"buffer_size": 1209,
+				"buffer_size": 1455,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/herror/AppData/Local/Temp/Twilight.tmTheme.txt",
+			"settings":
+			{
+				"buffer_size": 12362,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/audio.h",
+			"settings":
+			{
+				"buffer_size": 912,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/stark.c",
+			"settings":
+			{
+				"buffer_size": 1613,
 				"line_ending": "Windows"
 			}
 		}
@@ -1124,14 +1140,21 @@
 	],
 	"file_history":
 	[
-		"/C/Users/herror/Desktop/stark/src/stark.c",
-		"/C/Users/herror/Desktop/headhunter/src/entity.h",
-		"/C/Users/herror/Desktop/stark/src/entity.c",
-		"/C/Users/herror/Desktop/stark/src/screen.c",
 		"/C/Users/herror/Desktop/stark/src/stark.h",
-		"/C/Users/herror/Desktop/headhunter/src/util.h",
+		"/C/Users/herror/Desktop/stark/src/entity.c",
+		"/C/Users/herror/Desktop/stark/src/scene.c",
+		"/C/Users/herror/Desktop/stark/src/graphic.c",
+		"/C/Users/herror/Desktop/stark/src/audio.h",
+		"/C/Users/herror/Desktop/stark/src/keys.h",
+		"/C/Users/herror/Desktop/stark/makefile",
+		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.710/readme.txt",
 		"/C/Users/herror/Desktop/stark/src/entity.h",
+		"/C/Users/herror/Desktop/stark/src/screen.c",
+		"/C/Users/herror/Desktop/stark/src/stark.c",
 		"/C/Users/herror/Desktop/stark/src/graphic.h",
+		"/C/Users/herror/Desktop/stark/src/sound.h",
+		"/C/Users/herror/Desktop/headhunter/src/entity.h",
+		"/C/Users/herror/Desktop/headhunter/src/util.h",
 		"/C/Users/herror/Desktop/pona/engine.h",
 		"/C/Users/herror/Desktop/stark/stark/res/bg.bmp",
 		"/C/Users/herror/Desktop/stark/src/input.c",
@@ -1145,7 +1168,6 @@
 		"/C/_work/gams/Oaks.gmx/rooms/room0.room.gmx",
 		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/make run 2.sublime-build",
 		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/make run.sublime-build",
-		"/C/Users/herror/Desktop/stark/makefile",
 		"/C/Users/herror/Desktop/mag/src/stark.h",
 		"/C/Users/herror/Desktop/headhunter/src/engine.c",
 		"/C/Users/herror/Desktop/mag/src/screen.h",
@@ -1245,13 +1267,7 @@
 		"/C/Users/herror/Desktop/disq/src/ai.h",
 		"/C/Users/herror/Desktop/disq/src/engine.c",
 		"/C/SDKs/BearLibTerminal_0121/Include/C/BearLibTerminal.h",
-		"/C/_work/gams/tardig/src/list.h",
-		"/C/Users/herror/Desktop/disq/src/entity.c",
-		"/C/Users/herror/Desktop/disq/src/entity.h",
-		"/C/_work/gams/tardig/src/main.c",
-		"/C/Users/herror/Desktop/disq/src/engine.h",
-		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap"
+		"/C/_work/gams/tardig/src/list.h"
 	],
 	"find":
 	{
@@ -1543,53 +1559,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/entity.h",
+					"file": "src/audio.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1380,
+						"buffer_size": 1408,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								944,
-								944
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 510.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/entity.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 500,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								447,
-								447
+								569,
+								569
 							]
 						],
 						"settings":
@@ -1598,56 +1585,55 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 148.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/graphic.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3604,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1223,
-								1223
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 467.0,
+						"translation.y": 335.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/graphic.h",
+					"buffer": 1,
+					"file": "makefile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1209,
+						"buffer_size": 941,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								855,
-								858
+								203,
+								203
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/graphic.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								335,
+								335
 							]
 						],
 						"settings":
@@ -1656,10 +1642,97 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 131.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/herror/AppData/Local/Temp/Twilight.tmTheme.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12362,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/audio.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								796,
+								762
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/stark.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1613,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								767,
+								767
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1859,10 +1932,18 @@
 	},
 	"select_symbol":
 	{
-		"height": 35.0,
+		"height": 173.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"dele",
+				"sprite_delete"
+			],
+			[
+				"ini",
+				"stark_init"
+			],
 			[
 				"spr",
 				"Sprite"
@@ -1886,10 +1967,6 @@
 			[
 				"ent",
 				"entity_new"
-			],
-			[
-				"ini",
-				"input_init"
 			],
 			[
 				"init",
@@ -2370,10 +2447,6 @@
 			[
 				"upd",
 				"eng_update_actor_list"
-			],
-			[
-				"til",
-				"tile"
 			]
 		],
 		"width": 392.0

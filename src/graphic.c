@@ -1,18 +1,60 @@
 #include "graphic.h"
-#include "screen.h"
 
-SDL_Texture* load_texture(string path) {
-	SDL_Surface* tmp = SDL_LoadBMP(path);
-	if (!tmp) { debug("error loading texture: %s", path); return NULL;}
+SDL_Texture* load_texture(string path);
 
-	//format + key magenta to alpha
-	tmp = SDL_ConvertSurfaceFormat(tmp, SDL_GetWindowPixelFormat(window), 0);
-	SDL_SetColorKey(tmp, SDL_TRUE, SDL_MapRGB(tmp->format, 255, 0, 255));
+/**
+ * Screen handling
+ */
+bool screen_init(const char* title, int w, int h) {
+	scr_zoom = 1;
+	win_title = title;
+	win_w = w;
+	win_h = h;
 
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tmp);
-	SDL_FreeSurface(tmp);
-	return tex;
+	if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0) {debug("failed to init vide, %s", SDL_GetError());}
+
+	window = SDL_CreateWindow(title,  SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, win_w, win_h, 0);
+	if (!window) { debug("failed to create window, %s", SDL_GetError()); return false; }
+
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if (!renderer) { debug("failed to create renderer, %s", SDL_GetError()); return false; }
+	SDL_RenderSetLogicalSize(renderer, win_w * scr_zoom, win_h * scr_zoom);
+
+	//init true font
+	//if (TTF_Init() < 0) { debug("TTF_Init: %s\n", TTF_GetError()); exit(2); }
+
+	return true;
 }
+
+bool screen_render() {
+	/*
+	SDL_SetRenderDrawColor(renderer, 0, 150, 0, 255);
+	SDL_SetRenderTarget(renderer, screen);
+	SDL_RenderClear(renderer);
+
+	SDL_SetRenderTarget(renderer, NULL);
+	SDL_SetTextureBlendMode(screen, SDL_BLENDMODE_NONE);
+
+	SDL_RenderCopy(renderer, screen, NULL, NULL);
+	*/
+
+	SDL_RenderPresent(renderer);
+	SDL_UpdateWindowSurface(window);
+
+	SDL_SetRenderDrawColor(renderer, 20, 20, 20, 255);
+	SDL_RenderClear(renderer); //clear for next iteration
+
+	return true;
+}
+
+void screen_quit() {
+	//TTF_Quit();
+}
+
+
+/**
+ * Sprites
+ */
 
 Sprite sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
 	Sprite s = calloc(1, sizeof(struct sprite));
@@ -80,7 +122,7 @@ bool sprite_update(Sprite s) {
 	return true;
 }
 
-bool sprite_draw(Sprite s, int frame, int x, int y) {
+bool sprite_draw(Sprite s, int x, int y) {
 	if (!s) { return false; }
 
 
@@ -138,3 +180,21 @@ void sprite_set_scale(Sprite s, float xscale, float yscale) {
 	s->yscale = yscale;
 }
 
+
+
+/**
+ * Private methods
+ */
+
+SDL_Texture* load_texture(string path) {
+	SDL_Surface* tmp = SDL_LoadBMP(path);
+	if (!tmp) { debug("error loading texture: %s", path); return NULL;}
+
+	//format + key magenta to alpha
+	tmp = SDL_ConvertSurfaceFormat(tmp, SDL_GetWindowPixelFormat(window), 0);
+	SDL_SetColorKey(tmp, SDL_TRUE, SDL_MapRGB(tmp->format, 255, 0, 255));
+
+	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tmp);
+	SDL_FreeSurface(tmp);
+	return tex;
+}

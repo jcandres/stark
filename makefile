@@ -1,18 +1,22 @@
 
 CC = gcc
-CFLAGS = -std=c99 -g -Wall -Wextra -Woverride-init -Wunused-variable
-INC = -Ic:\sdl2\i686-w64-mingw32\include\sdl2
-LIBDIR = -Lc:\sdl2\i686-w64-mingw32\lib
-LDFLAGS = -lmingw32 -lSDL2main -lSDL2 -lopengl32 -lSDL2_mixer
 
-TARGET   = stark
-SRCDIR   = src
-OBJDIR   = obj
+# -Wl,-subsystem,windows gets rid of the console window
+CFLAGS = -std=c99 -g -Wall -Wextra -Woverride-init -Wunused-variable
+INC = -Ic:\sdl2\include\sdl2
+LIBDIR = -Lc:\sdl2\lib
+LDFLAGS = -lmingw32 -lSDL2main -lSDL2 -lopengl32 -lSDL2_mixer -lSDL2_ttf
+#-lSDL2 goes AFTER all the -lSDL_xxx libraries
+#LDFLAGS = -static -Lc:\sdl2\lib -lmingw32 -lSDL2main -lSDL2_mixer -lSDL2 -mwindows -lm -ldinput8 -ldxguid -ldxerr8 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32 -lversion -luuid -static-libgcc
+
+TARGET  = stark
+SRCDIR  = src
+OBJDIR  = obj
 BUILDDIR = $(TARGET)
-SOURCES  := $(wildcard $(SRCDIR)/*.c)
+SOURCES := $(wildcard $(SRCDIR)/*.c)
 INCLUDES := $(wildcard $(SRCDIR)/*.h)
-OBJECTS  := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
-rm       = rm -f
+OBJECTS := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+rm    = rm -f
 
 SOURCES = $(wildcard ./src/*.c)
 OBJ = $(wildcard ./obj/*.o)
