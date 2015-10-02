@@ -9,7 +9,8 @@ typedef SDL_Rect Rect;
 
 /** sprites are 2D images, animated */
 typedef struct sprite {
-	SDL_Texture* texture;
+	SDL_Texture* 	texture;
+	string		name;
 	int 		w, h; 				//tile size
 	int 		row, col; 			//tile position on spritesheet
 	int 		sheet_w, sheet_h;		//size of texture
@@ -17,7 +18,7 @@ typedef struct sprite {
 
 	int 		depth;				//rendering depth
 
-	const char* 	frames;				//ARRAY of frames
+	string 		frames;				//sequence of frames to animate: "0134"
 	float		frame_index;			//frame to draw
 
 	float		current_frame, animation_speed,	//(int)current_frame
@@ -33,7 +34,7 @@ typedef struct sprite {
 
 typedef struct sprite* Sprite;
 
-Sprite 	sprite_new(string path, int w, int h, const char* frames);
+Sprite 	sprite_new(string path, int w, int h, string frames);
 void 	sprite_delete(Sprite s);
 bool 	sprite_update(Sprite s);
 bool 	sprite_draw(Sprite s, int frame, int x, int y);
