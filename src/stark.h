@@ -55,6 +55,14 @@ typedef enum { false, true } bool;
 #define warning(M, ...) printf( "\nWARNING %s:%d:\n  " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
 #define trace(M, ...) printf(  M "\n", ##__VA_ARGS__) //for quick tests
 
+/**
+ * returns the % of value over max_value: percent(128, 256) == 50
+ * acceps positive and negative values
+ */
+static inline int percent(int value, int max_value) {
+	if (max_value == 0) { return 0; }
+	return (value * 100) / max_value;
+}
 
 /** string tools */
 /* move this to a sensible place plz */

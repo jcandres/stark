@@ -38,7 +38,7 @@ sound_delete(Sound snd) {
 
 void
 sound_play(Sound snd, int volume) {
-	int v = (volume * MIX_MAX_VOLUME) / 100; // from %, get  0-128
+	int v = percent(volume, MIX_MAX_VOLUME);
 	Mix_VolumeChunk(snd, v);
 	Mix_PlayChannel(-1, snd, 0); 	//chan -1 defaults to next available channel
 }

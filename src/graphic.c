@@ -65,7 +65,7 @@ screen_quit() {
  */
 
 Sprite
-sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
+sprite_new(string path, int frame_w, int frame_h, string anim_sequence, float speed) {
 	Sprite s = calloc(1, sizeof(struct sprite));
 
 	s->name = NULL;
@@ -90,47 +90,50 @@ sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
 	s->depth = 0;
 
 	// animation variables
-	s->frame_sequence = NULL;
-	s->frame_index = 0;
-	s->frame_rate = .25;
+	s->anim_sequence = NULL;
+	s->anim_index = 0;
+	s->anim_speed = speed;
 
 	s->_oldtime = 0;
-	s->_frames_max = 0;
+	s->anim_number = 0;
 
-	if (frame_sequence) { //user provided string, parse it
-		strmk(s->frame_sequence, "");
+	if (anim_sequence) { //user provided string, parse it
+		strmk(s->anim_sequence, "");
 		//iterate chars - if we have a number, append it to the array
-		for (char* i = frame_sequence; *i != '\0'; i++) {
+		for (char* i = anim_sequence; *i != '\0'; i++) {
 			int n = chtoi(*i);
 			if (n >= 0 && n <= 9) {
-				sasprintf(s->frame_sequence, "%s%i", s->frame_sequence, n);
-				s->_frames_max++;//increase frame count
+				sasprintf(s->anim_sequence, "%s%i", s->anim_sequence, n);
+				s->anim_number++;//increase frame count
 			}
 		}
 	}
 
-	s->xscale = s->yscale = 1;
-	s->alpha = 256;
+	s->xscale = s->yscale = 1.0;
+	s->color = NULL;
 	s->angle = 0;
-	s->flip = true;
+	s->flip = false;
 
 	return s;
 }
 
 void
 sprite_delete(Sprite s) {
+	if (s->name) { free(s->name); }
 	if (s->texture) { SDL_DestroyTexture(s->texture); }
+	if (s->anim_sequence) { free(s->anim_sequence); }
+	if (s->color) { free(s->color); }
 	free(s);
 	s = NULL;
 }
 
 bool
 sprite_update(Sprite s) {
-	if (s->_oldtime + s->frame_rate * 1000 > SDL_GetTicks()) { return true; }
+	if (s->_oldtime + s->anim_speed * 1000 > SDL_GetTicks()) { return true; }
 	s->_oldtime = SDL_GetTicks();
-	s->frame_index++;
-	if (s->frame_index >= s->_frames_max) {
-		s->frame_index = 0;
+	s->anim_index++;
+	if (s->anim_index >= s->anim_number) {
+		s->anim_index = 0;
 	}
 
 	return true;
@@ -139,7 +142,7 @@ sprite_update(Sprite s) {
 bool
 sprite_draw(Sprite s, int x, int y) {
 	//get the frame we will draw from the string
-	int draw_frame = chtoi(s->frame_sequence[(int)s->frame_index]);
+	int draw_frame = chtoi(s->anim_sequence[(int)s->anim_index]);
 
 	int tile_x, tile_y;
 	tile_x = (draw_frame % s->sheet_cols) * s->w;
@@ -165,6 +168,10 @@ sprite_set_scale(Sprite s, float xscale, float yscale) {
 	s->yscale = yscale;
 }
 
+void
+sprite_set_speed(Sprite s, float seconds) {
+	s->anim_speed = seconds;
+}
 
 
 /**

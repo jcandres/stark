@@ -1,7 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <assert.h>
 #include <SDL.h>
 #include <SDL_mixer.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "list.h"
 
@@ -35,8 +36,11 @@ stark_execute() {
 
 	///////////
 	Entity e = entity_new("test entity >:0", 0, 0);
-	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "0, 1, 2, 1");
+	Entity f = entity_new("test entity >:0", 300, 300);
+	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "0, 1, 2, 1", .2);
+	f->sprite = sprite_new("res/gfx.bmp", 8, 8, "4 5 4 5", .5);
 	sprite_set_scale(e->sprite, 10, 10);
+	sprite_set_scale(f->sprite, 10, 10);
 	////////////
 	music_play(music_load("res/nervously.ogg"), true, 15);
 	//sound_play(sound_load("res/nervously.ogg"), 100);
@@ -48,12 +52,16 @@ stark_execute() {
 
 		get_fps();
 		entity_update(e); /////////
+		entity_update(f); /////////
 		entity_draw(e); /////////
+		entity_draw(f); /////////
 
 
 		screen_render();
 	}
 
+	entity_delete(e);////
+	entity_delete(f);////
 
 	return stark_quit();
 }

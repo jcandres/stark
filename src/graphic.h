@@ -38,30 +38,31 @@ typedef struct sprite {
 	int 		sheet_w, sheet_h;		//size of texture
 	int 		sheet_cols, sheet_rows;		//size of texture
 
-	int 		depth;				//rendering depth
-
-	string 		frame_sequence;			//sequence of frames to animate: "0134"
-	float		frame_index,			//frame to draw
-	                frame_rate,			//seconds
+	string 		anim_sequence;			//sequence of frames to animate: "1, 2, 5, 1"
+	float		anim_index,			//frame to draw
+	                anim_speed,			//seconds
 	                xscale, yscale,
 	                angle;
-	unsigned int	alpha;				//0-255
+	int		anim_number; 			//max of frames in the sequence
+
+	int 		depth;				//rendering depth
+	Color		color;				//r g b a
 	bool		flip;				//horizontal mirroring
 
 	//private
 	long	_oldtime; 	//animation time leftovers
-	int	_frames_max; 	//max of frames in the sequence
 
 } sprite;
 
 typedef struct sprite* Sprite;
 
-Sprite 	sprite_new(string path, int w, int h, string frame_sequence);
+Sprite 	sprite_new(string path, int w, int h, string frame_sequence, float speed);
 void 	sprite_delete(Sprite s);
 bool 	sprite_update(Sprite s);
 bool 	sprite_draw(Sprite s, int x, int y);
 
 void 	sprite_set_scale(Sprite s, float xscale, float yscale);
+void 	sprite_set_speed(Sprite s, float seconds);
 
 
 

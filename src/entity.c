@@ -24,6 +24,8 @@ entity_new(string name, int x, int y) {
 
 void
 entity_delete(Entity e) {
+	if (e->name) { free(e->name); }
+	if (e->sprite) { sprite_delete(e->sprite); }
 	free(e);
 	e = NULL;
 }
