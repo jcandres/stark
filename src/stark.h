@@ -84,10 +84,26 @@ static inline int asprintf(char** sptr, char* fmt, ...) {
 	return retval;
 }
 
+/**
+ * Safer asprintf macro - for appending strings
+ * Sasprintf(q, "%s %s where col%i is not null", q, tablename, i);
+ */
+#define sasprintf(write_to, ...) { \
+	char *tmp_string_for_extend = (write_to); \
+	asprintf(&(write_to), __VA_ARGS__); \
+	free(tmp_string_for_extend); \
+}
+
 #define strmk(write_to, ...) { \
 	char *tmp = (write_to); \
 	asprintf(&(write_to), __VA_ARGS__); \
 	free(tmp); \
+}
+static inline char* strdup(const char* s) {
+	char* d = malloc(strlen(s) + 1);     // Space for length plus nul
+	if (d == NULL) { return NULL; }      // No memory
+	strcpy(d, s);                        // Copy the characters
+	return d;                            // Return the new string
 }
 
 static inline bool string_equals(char* a, char* b) {

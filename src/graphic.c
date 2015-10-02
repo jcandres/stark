@@ -89,7 +89,7 @@ sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
 
 	s->depth = 0;
 
-	// sequence of frames
+	// animation variables
 	s->frame_sequence = NULL;
 	s->frame_index = 0;
 	s->frame_rate = .25;
@@ -98,15 +98,14 @@ sprite_new(string path, int frame_w, int frame_h, string frame_sequence) {
 	s->_frames_max = 0;
 
 	if (frame_sequence) { //user provided string, parse it
-		strmk(s->frame_sequence, "%s", frame_sequence);
-		//iterate the string sequence to check if well formed...
-		for (char* i = s->frame_sequence; *i != '\0'; i++) {
-			if (*i > '9' || *i < '0') {
-				warning("possible bad sequence of frames in %s: %s, \
-					make sure you are using numbers only",
-				        s->name, s->frame_sequence);
+		strmk(s->frame_sequence, "");
+		//iterate chars - if we have a number, append it to the array
+		for (char* i = frame_sequence; *i != '\0'; i++) {
+			int n = chtoi(*i);
+			if (n >= 0 && n <= 9) {
+				sasprintf(s->frame_sequence, "%s%i", s->frame_sequence, n);
+				s->_frames_max++;//increase frame count
 			}
-			s->_frames_max++;//increase frame count
 		}
 	}
 

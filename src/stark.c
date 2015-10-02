@@ -35,7 +35,7 @@ stark_execute() {
 
 	///////////
 	Entity e = entity_new("test entity >:0", 0, 0);
-	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "01012323454567678989654321");
+	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "0, 1, 2, 1");
 	sprite_set_scale(e->sprite, 10, 10);
 	////////////
 	music_play(music_load("res/nervously.ogg"), true, 15);
