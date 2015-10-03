@@ -95,6 +95,7 @@ sprite_new(String path, int frame_w, int frame_h, String anim_sequence, float sp
 	//initialize texture and frame size
 	s->sheet_w = s->w = tex_w;
 	s->sheet_h = s->h = tex_h;
+
 	//if user provided valid size, crop the frame size
 	if (frame_w > 0 && frame_h > 0 && frame_w < tex_w && frame_h < tex_h) {
 		s->w = frame_w;
@@ -192,9 +193,19 @@ text_new(String font_path, String text, Color col, int font_size) {
 	//default size is 14px
 	Font fon = TTF_OpenFont(font_path, (font_size > 0) ? font_size : 14);
 	if (!fon) { debug("Error loading font: %s: %s", font_path, TTF_GetError()); }
-	sasprintf(s->name, "%s", font_path);
+
 	s->texture = load_font(fon, text, col);
 	TTF_CloseFont(fon);
+
+	/** THIS IS A HACK UNTIL LOADING RESOURCES IS STREAMLINED */
+	sasprintf(s->name, "%s", font_path);
+	int tex_w, tex_h;
+	SDL_QueryTexture(s->texture, NULL, NULL, &tex_w, &tex_h);
+	//initialize texture and frame size
+	s->sheet_w = s->w = tex_w;
+	s->sheet_h = s->h = tex_h;
+	s->sheet_cols = s->sheet_rows = 1;
+	/** HACK ENDS HERE :( */
 
 	return s;
 }
@@ -222,7 +233,7 @@ load_texture(String path) {
 
 SDL_Texture*
 load_font(Font font, String path, Color col) {
-	SDL_Color c = {255, 0, 255, 255}; // white font by default
+	SDL_Color c = {255, 255, 255, 255}; // white font by default
 	if (col) { c = *col; }
 
 	SDL_Surface* tmp = TTF_RenderText_Solid(font, path, c);

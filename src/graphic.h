@@ -73,6 +73,12 @@ sprite_draw(self->texture), text_draw(self->texture), etc
 
 IS THIS EVEN POSSIBL?? it would be v nice*/
 
+/**
+ * ORGANIZATION IS A MESS
+ * need a decent way of loading resources of all kinds into a Sprite
+ * for example getting extension from filename and handling it there?
+ */
+
 
 Sprite 	sprite_new(String path, int w, int h, String frame_sequence, float speed);
 void 	sprite_delete(Sprite s);
