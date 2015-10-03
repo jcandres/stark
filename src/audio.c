@@ -9,12 +9,12 @@ void 	music_queue_callback();
 
 bool
 audio_init() {
-	if (Mix_Init(0) < 0) {
+	if (Mix_Init(MIX_INIT_MP3) < 0) {
 		debug("failed to init audio, %s", SDL_GetError());
 		return false;
 	}
 
-	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 1, 4096) < 0) {
+	if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
 		debug("SDL_mixer could not initialize: %s\n", Mix_GetError());
 		return false;
 	}
