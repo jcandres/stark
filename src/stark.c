@@ -101,7 +101,7 @@ get_fps() {
 		fps_current = fps_frames;
 		fps_frames = 0;
 		char s[80];
-		sprintf(s, "%s (%i fps)", win_title, fps_current);
-		SDL_SetWindowTitle(window, s);
+		sprintf(s, "%s (%i fps)", screen_get_window_title(), fps_current);
+		screen_set_window_title(s);
 	}
 }

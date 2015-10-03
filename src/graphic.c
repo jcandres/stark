@@ -5,14 +5,21 @@
 typedef TTF_Font* Font;
 
 /** Private */
-Texture 	load_texture(String path);
-Texture 	load_font(Font font, String path, Color col);
+SDL_Window* 	window;
+SDL_Renderer* 	renderer;
+
+int 	win_w, win_h;
+String 	win_title;
+int 	scr_zoom;
+
+Texture load_texture(String path);
+Texture load_font(Font font, String path, Color col);
 
 
 /** Screen system */
 
 bool
-screen_init(const char* title, int w, int h, int zoom) {
+screen_init(String title, int w, int h, int zoom) {
 	scr_zoom = 1;
 	win_title = title;
 	win_w = w;
@@ -42,17 +49,6 @@ screen_init(const char* title, int w, int h, int zoom) {
 
 bool
 screen_render() {
-	/*
-	SDL_SetRenderDrawColor(renderer, 0, 150, 0, 255);
-	SDL_SetRenderTarget(renderer, screen);
-	SDL_RenderClear(renderer);
-
-	SDL_SetRenderTarget(renderer, NULL);
-	SDL_SetTextureBlendMode(screen, SDL_BLENDMODE_NONE);
-
-	SDL_RenderCopy(renderer, screen, NULL, NULL);
-	*/
-
 	SDL_RenderPresent(renderer);
 	SDL_UpdateWindowSurface(window);
 
@@ -68,6 +64,15 @@ screen_quit() {
 	TTF_Quit();
 }
 
+String
+screen_get_window_title() {
+	return win_title;
+}
+
+void
+screen_set_window_title(String title) {
+	SDL_SetWindowTitle(window, title);
+}
 
 /** Sprites */
 

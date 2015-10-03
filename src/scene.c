@@ -1,3 +1,4 @@
+/*
 #include "scene.h"
 
 void update_actor_list();
@@ -57,3 +58,4 @@ scene_update(Scene scn) {
 void update_actor_list() {
 
 }
+*/

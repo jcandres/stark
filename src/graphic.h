@@ -15,28 +15,24 @@
 #ifndef GRAPHIC_H
 #define GRAPHIC_H
 
-//#include <SDL_ttf.h>
 #include "stark.h"
-
-
-/** Window and Screen */
-SDL_Window* window;
-SDL_Renderer* renderer;
-
-int 	win_w, win_h;
-const char* win_title;
-int 	scr_zoom;
-
-bool 	screen_init(const char* title, int w, int h, int zoom);
-bool 	screen_render();
-void 	screen_quit();
 
 /**
  * Types
  */
+typedef SDL_Window* 	Window;
+typedef SDL_Renderer* 	Renderer;
 typedef SDL_Texture* 	Texture;
 typedef SDL_Rect* 	Rect;
 typedef SDL_Color* 	Color;
+
+/** Window and Screen */
+bool 	screen_init(String title, int w, int h, int zoom);
+bool 	screen_render();
+void 	screen_quit();
+String 	screen_get_window_title();
+void 	screen_set_window_title(String title);
+
 
 
 /** Sprites are 2D images, with animation capabilities */
