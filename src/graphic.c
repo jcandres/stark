@@ -1,12 +1,15 @@
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "graphic.h"
 
+typedef TTF_Font* Font;
 
 /** Private */
-SDL_Texture* load_texture(String path);
+SDL_Texture* 	load_texture(String path);
+SDL_Texture* 	load_font(Font font, String path, Color col);
 
 
-/** SCREEN SYSTEM */
+/** Screen system */
 
 bool
 screen_init(const char* title, int w, int h, int zoom) {
@@ -31,8 +34,8 @@ screen_init(const char* title, int w, int h, int zoom) {
 	//Init SDL_image
 	if (IMG_Init(IMG_INIT_PNG) < 0) {debug("failed to init SDL_image, %s", IMG_GetError());}
 
-	//init true font
-	//if (TTF_Init() < 0) { debug("TTF_Init: %s\n", TTF_GetError()); exit(2); }
+	//init SDL_ttf
+	if (TTF_Init() < 0) { debug("TTF_Init: %s\n", TTF_GetError()); exit(2); }
 
 	return true;
 }
@@ -62,19 +65,30 @@ screen_render() {
 void
 screen_quit() {
 	IMG_Quit();
-	//TTF_Quit();
+	TTF_Quit();
 }
 
 
-/** SPRITES */
+/** Sprites */
 
 Sprite
 sprite_new(String path, int frame_w, int frame_h, String anim_sequence, float speed) {
 	Sprite s = calloc(1, sizeof(struct sprite));
 
-	s->name = string_new(path);
+	//init vars needed in all cases (animation, text..)
+	s->name = string_new((path) ? path : "");
+	s->xscale = s->yscale = 1.0;
+	s->sheet_cols = s->sheet_rows = 1;
+
+	//no filename = not loading graphic. Useful for creating text-only sprites.
+	if (!path) {
+		warning("no filename provided for Sprite %p", s);
+		return s;
+	}
+
 
 	s->texture = load_texture(path);
+
 	int tex_w, tex_h;
 	SDL_QueryTexture(s->texture, NULL, NULL, &tex_w, &tex_h);
 
@@ -93,18 +107,17 @@ sprite_new(String path, int frame_w, int frame_h, String anim_sequence, float sp
 	//initialize animation vars
 	if (anim_sequence) {
 		s->anim_sequence = string_new("");
-		//iterate chars - if we have a number, append it to the array
+		//iterate chars - ignore all but numbers
 		for (char* i = anim_sequence; *i != '\0'; i++) {
 			int n = chtoi(*i);
 			if (n >= 0 && n <= 9) {
+				//valid frame: append to array, increase frame count
 				sasprintf(s->anim_sequence, "%s%i", s->anim_sequence, n);
-				s->anim_number++;//increase frame count
+				s->anim_number++;
 			}
 		}
 	}
 	s->anim_speed = speed;
-
-	s->xscale = s->yscale = 1.0;
 
 	return s;
 }
@@ -172,6 +185,20 @@ sprite_set_callback(Sprite s, void (*func)(Sprite)) {
 	s->anim_callback = func;
 }
 
+/** Fonts */
+Sprite
+text_new(String font_path, String text, Color col, int font_size) {
+	Sprite s = sprite_new(0, 0, 0, 0, 0);
+	//default size is 14px
+	Font fon = TTF_OpenFont(font_path, (font_size > 0) ? font_size : 14);
+	if (!fon) { debug("Error loading font: %s: %s", font_path, TTF_GetError()); }
+	sasprintf(s->name, "%s", font_path);
+	s->texture = load_font(fon, text, col);
+	TTF_CloseFont(fon);
+
+	return s;
+}
+
 
 /** Private */
 
@@ -183,10 +210,23 @@ load_texture(String path) {
 		return NULL;
 	}
 
-	// .bmp files get magenta replaced by alpha
+	// .bmp files get magenta replaced by alpha !!!
 	if (string_equals(string_get_filename_ext(path), ".bmp")) {
 		SDL_SetColorKey(tmp, SDL_TRUE, SDL_MapRGB(tmp->format, 255, 0, 255));
 	}
+
+	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tmp);
+	SDL_FreeSurface(tmp);
+	return tex;
+}
+
+SDL_Texture*
+load_font(Font font, String path, Color col) {
+	SDL_Color c = {255, 0, 255, 255}; // white font by default
+	if (col) { c = *col; }
+
+	SDL_Surface* tmp = TTF_RenderText_Solid(font, path, c);
+	if (!tmp) {debug("error loading font texture: %s: %s", path, TTF_GetError()); }
 
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tmp);
 	SDL_FreeSurface(tmp);

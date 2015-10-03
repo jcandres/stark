@@ -3,8 +3,10 @@
  * Graphic.h includes window and screen handling
  * and sprite loading and rendering
  *
- * Supports .bmp natively (magenta (255,0,255) xFF00FF will be replaced by alpha!)
- * Also .png if libpng16-16.dll is present
+ * SDL supports .bmp natively (magenta (255,0,255) xFF00FF will be replaced with
+ * alpha!), and SDL_image allows using .png files if libpng16-16.dll is present
+ *
+ * SDL_ttf used for rendering fonts, requires libfreetype-6.dll
  */
 
 
@@ -63,6 +65,14 @@ struct sprite {
 
 };
 
+/*maybe restrict to a public interface Graphic, that is a void* that can host
+Sprites, Text, etc so the user only calls
+graphic_draw(self->graphic);
+then this function simply draws the texture inside the passed argument:
+sprite_draw(self->texture), text_draw(self->texture), etc
+
+IS THIS EVEN POSSIBL?? it would be v nice*/
+
 
 Sprite 	sprite_new(String path, int w, int h, String frame_sequence, float speed);
 void 	sprite_delete(Sprite s);
@@ -73,6 +83,8 @@ void 	sprite_set_scale(Sprite s, float xscale, float yscale);
 void 	sprite_set_speed(Sprite s, float seconds);
 void 	sprite_set_callback(Sprite s, void (*func)(Sprite self));
 
+/** texts are sprites generated from a font file and user text */
+Sprite 	text_new(String font_path, String text, Color col, int font_size);
 
 
 
