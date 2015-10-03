@@ -12,10 +12,13 @@
 #include "scene.h"
 #include "entity.h"
 
+/** Private */
 
 bool 	stark_quit();
 void	get_fps();
 
+
+/** Game systems */
 
 bool
 stark_init() {
@@ -80,6 +83,8 @@ stark_quit() {
 	return 0; //success, whatever
 }
 
+
+/** Private */
 
 void
 get_fps() {

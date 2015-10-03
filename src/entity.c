@@ -1,6 +1,11 @@
 #include "entity.h"
 
-//static List entities;
+/** Entity manager */
+
+//todo static List entities;
+
+
+/** Entities */
 
 Entity
 entity_new(string name, int x, int y) {

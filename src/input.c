@@ -1,6 +1,7 @@
 #include "input.h"
 #include "list.h"
 
+/** Private */
 #define _MAX_STORED_KEYS 1024
 
 SDL_Event event;
@@ -15,7 +16,8 @@ key_state keystates[_MAX_STORED_KEYS] = { NONE };
 const Uint8* keyboard;
 int mouse_x, mouse_y;
 
-/** Input systems */
+
+/** Input system */
 
 bool
 input_init() {
@@ -70,7 +72,7 @@ input_quit() {
 }
 
 
-/** Input checking */
+/** Input user functions */
 
 bool
 input_check(Key k) {

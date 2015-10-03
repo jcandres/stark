@@ -1,11 +1,13 @@
 #include "audio.h"
 
+/* Private */
 static Music 	mus_queued = NULL;
 static bool 	mus_queued_loop = false;
 static float 	mus_queued_fadein = 0;
 void 	music_queue_callback();
 
 
+/** Audio System */
 
 bool
 audio_init() {
@@ -28,7 +30,7 @@ audio_quit() {
 	Mix_Quit();
 }
 
-/* SOUNDS */
+/** Sounds */
 
 Sound
 sound_load(string path) {
@@ -51,7 +53,7 @@ sound_play(Sound snd, int volume) {
 }
 
 
-/* MUSIC */
+/** Music */
 
 Music
 music_load(string path) {
@@ -105,9 +107,7 @@ music_resume() {
 }
 
 
-/**
- * private
- */
+/** Private */
 
 void
 music_queue_callback() {

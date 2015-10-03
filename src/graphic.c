@@ -1,10 +1,10 @@
 #include "graphic.h"
 
+/** Private */
 SDL_Texture* load_texture(string path);
 
-/**
- * Screen handling
- */
+
+/** SCREEN SYSTEM */
 
 bool
 screen_init(const char* title, int w, int h, int zoom) {
@@ -60,9 +60,7 @@ screen_quit() {
 }
 
 
-/**
- * Sprites
- */
+/** SPRITES */
 
 Sprite
 sprite_new(string path, int frame_w, int frame_h, string anim_sequence, float speed) {
@@ -174,9 +172,8 @@ sprite_set_speed(Sprite s, float seconds) {
 }
 
 
-/**
- * Private methods
- */
+
+/** Private */
 
 SDL_Texture*
 load_texture(string path) {
