@@ -66,7 +66,7 @@ static inline int percent(int value, int max_value) {
 
 /** string tools */
 /* move this to a sensible place plz */
-typedef char* string;
+typedef char* String;
 
 #define itoch(i) ( i + '0')
 #define chtoi(ch) ( ch - '0')
@@ -93,7 +93,7 @@ static inline int asprintf(char** sptr, char* fmt, ...) {
 }
 
 /**
- * Safer asprintf macro - for appending strings
+ * Safer asprintf macro - for appending Strings
  * Sasprintf(q, "%s %s where col%i is not null", q, tablename, i);
  */
 #define sasprintf(write_to, ...) { \
@@ -111,7 +111,7 @@ static inline char* strdup(const char* s) {
 	char* d = malloc(strlen(s) + 1);     // Space for length plus nul
 	if (d == NULL) { return NULL; }      // No memory
 	strcpy(d, s);                        // Copy the characters
-	return d;                            // Return the new string
+	return d;                            // Return the new String
 }
 
 static inline bool string_equals(char* a, char* b) {

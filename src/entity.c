@@ -8,7 +8,7 @@
 /** Entities */
 
 Entity
-entity_new(string name, int x, int y) {
+entity_new(String name, int x, int y) {
 	static int __ids = 0;
 
 	Entity e = calloc(1, sizeof(struct entity));

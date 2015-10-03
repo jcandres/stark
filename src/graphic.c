@@ -1,7 +1,7 @@
 #include "graphic.h"
 
 /** Private */
-SDL_Texture* load_texture(string path);
+SDL_Texture* load_texture(String path);
 
 
 /** SCREEN SYSTEM */
@@ -63,10 +63,9 @@ screen_quit() {
 /** SPRITES */
 
 Sprite
-sprite_new(string path, int frame_w, int frame_h, string anim_sequence, float speed) {
+sprite_new(String path, int frame_w, int frame_h, String anim_sequence, float speed) {
 	Sprite s = calloc(1, sizeof(struct sprite));
 
-	s->name = NULL;
 	strmk(s->name, "%s", path);
 
 	s->texture = load_texture(path);
@@ -85,17 +84,8 @@ sprite_new(string path, int frame_w, int frame_h, string anim_sequence, float sp
 	s->sheet_cols = s->sheet_w / s->w;
 	s->sheet_rows = s->sheet_h / s->h;
 
-	s->depth = 0;
-
-	// animation variables
-	s->anim_sequence = NULL;
-	s->anim_index = 0;
-	s->anim_speed = speed;
-
-	s->_oldtime = 0;
-	s->anim_number = 0;
-
-	if (anim_sequence) { //user provided string, parse it
+	//initialize animation vars
+	if (anim_sequence) {
 		strmk(s->anim_sequence, "");
 		//iterate chars - if we have a number, append it to the array
 		for (char* i = anim_sequence; *i != '\0'; i++) {
@@ -106,11 +96,9 @@ sprite_new(string path, int frame_w, int frame_h, string anim_sequence, float sp
 			}
 		}
 	}
+	s->anim_speed = speed;
 
 	s->xscale = s->yscale = 1.0;
-	s->color = NULL;
-	s->angle = 0;
-	s->flip = false;
 
 	return s;
 }
@@ -132,6 +120,7 @@ sprite_update(Sprite s) {
 	s->anim_index++;
 	if (s->anim_index >= s->anim_number) {
 		s->anim_index = 0;
+		if (s->anim_callback) { s->anim_callback(s); }
 	}
 
 	return true;
@@ -139,7 +128,7 @@ sprite_update(Sprite s) {
 
 bool
 sprite_draw(Sprite s, int x, int y) {
-	//get the frame we will draw from the string
+	//get the frame we will draw from the String
 	int draw_frame = chtoi(s->anim_sequence[(int)s->anim_index]);
 
 	int tile_x, tile_y;
@@ -171,12 +160,16 @@ sprite_set_speed(Sprite s, float seconds) {
 	s->anim_speed = seconds;
 }
 
+void
+sprite_set_callback(Sprite s, void (*func)(Sprite)) {
+	s->anim_callback = func;
+}
 
 
 /** Private */
 
 SDL_Texture*
-load_texture(string path) {
+load_texture(String path) {
 	SDL_Surface* tmp = SDL_LoadBMP(path);
 	if (!tmp) { debug("error loading texture: %s", path); return NULL;}
 

@@ -32,20 +32,24 @@ typedef SDL_Color* Color;
 
 
 /** Sprites are 2D images, with animation capabilities */
-typedef struct sprite {
+typedef struct sprite sprite;
+typedef struct sprite* Sprite;
+
+struct sprite {
 	SDL_Texture* 	texture;
-	string		name;
+	String		name;
 	int 		w, h; 				//tile size
 	int 		row, col; 			//tile position on spritesheet
 	int 		sheet_w, sheet_h;		//size of texture
 	int 		sheet_cols, sheet_rows;		//size of texture
 
-	string 		anim_sequence;			//sequence of frames to animate: "1, 2, 5, 1"
+	String 		anim_sequence;			//sequence of frames to animate: "1, 2, 5, 1"
 	float		anim_index,			//frame to draw
 	                anim_speed,			//seconds
 	                xscale, yscale,
 	                angle;
 	int		anim_number; 			//max of frames in the sequence
+	void	(*anim_callback)(Sprite self);			//end of animation callback
 
 	int 		depth;				//rendering depth
 	Color		color;				//r g b a
@@ -54,17 +58,17 @@ typedef struct sprite {
 	//private
 	long	_oldtime; 	//animation time leftovers
 
-} sprite;
+};
 
-typedef struct sprite* Sprite;
 
-Sprite 	sprite_new(string path, int w, int h, string frame_sequence, float speed);
+Sprite 	sprite_new(String path, int w, int h, String frame_sequence, float speed);
 void 	sprite_delete(Sprite s);
 bool 	sprite_update(Sprite s);
 bool 	sprite_draw(Sprite s, int x, int y);
 
 void 	sprite_set_scale(Sprite s, float xscale, float yscale);
 void 	sprite_set_speed(Sprite s, float seconds);
+void 	sprite_set_callback(Sprite s, void (*func)(Sprite self));
 
 
 

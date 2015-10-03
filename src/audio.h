@@ -15,6 +15,12 @@
  *
  */
 
+/**
+ * FOR FUCKS SAKE sounds should be managed... you don't have to worry about
+ * loading twice the same file and whatnot - simply call play("s.wav")
+ * and the engine loads it if necessary
+ */
+
 
 #ifndef SOUND_H
 #define SOUND_H
@@ -38,7 +44,7 @@ void 	audio_quit();
 Sound s = sound_load("res/popo.wav");
 sound_play(s, 10);
 */
-Sound	sound_load(string path);
+Sound	sound_load(String path);
 void	sound_delete(Sound snd);
 void	sound_play(Sound snd, int volume); //volume is percent
 
@@ -47,11 +53,17 @@ void	sound_play(Sound snd, int volume); //volume is percent
 
 /** Music
 
-Music m = music_load("res/notes.wav");
-music_play(m, true, 30);
+	Music m = music_load("res/notes.wav");
+	music_play(m, true, 30);
+
+Gotcha: if you queue manually a music fade out + in
+	music stop(5);
+	music_play(z, true, 2);
+it'll BLOCK the game until the current fade out ends - this can be cool for
+dramatic music changes, but otherwise use music_queue(z, true, 5, 2);
 */
 
-Music	music_load(string path);
+Music	music_load(String path);
 void	music_delete(Music mus);
 void	music_play(Music mus, bool loop, float fade_in_seconds);
 void	music_stop(float fade_out_seconds);

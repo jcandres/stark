@@ -57,13 +57,13 @@ struct entity {
 };
 
 
-Entity 	entity_new(string name, int x, int y);
+Entity 	entity_new(String name, int x, int y);
 void 	entity_delete(Entity e);
 void 	entity_update(Entity e); 		//the dafault update code
 void 	entity_draw(Entity e); 			//the dafault draw code
 
 //wip
-Entity 	entity_get(string name);
+Entity 	entity_get(String name);
 Entity 	entity_get_at(int x, int y);
 
 

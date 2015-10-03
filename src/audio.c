@@ -33,7 +33,7 @@ audio_quit() {
 /** Sounds */
 
 Sound
-sound_load(string path) {
+sound_load(String path) {
 	Sound snd = Mix_LoadWAV(path);
 	if (!snd) { debug("Cannot load sound: %s> %s\n", path, Mix_GetError()); }
 	return snd;
@@ -56,7 +56,7 @@ sound_play(Sound snd, int volume) {
 /** Music */
 
 Music
-music_load(string path) {
+music_load(String path) {
 	Music mus = Mix_LoadMUS(path);
 	if (!mus) { debug("Cannot load music: %s\n", path); }
 	return mus;
