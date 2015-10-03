@@ -5,8 +5,8 @@
 typedef TTF_Font* Font;
 
 /** Private */
-SDL_Texture* 	load_texture(String path);
-SDL_Texture* 	load_font(Font font, String path, Color col);
+Texture 	load_texture(String path);
+Texture 	load_font(Font font, String path, Color col);
 
 
 /** Screen system */
@@ -186,19 +186,21 @@ sprite_set_callback(Sprite s, void (*func)(Sprite)) {
 	s->anim_callback = func;
 }
 
+
 /** Fonts */
+
 Sprite
-text_new(String font_path, String text, Color col, int font_size) {
+text_new(String font_path, String text, int font_size, Color col) {
 	Sprite s = sprite_new(0, 0, 0, 0, 0);
-	//default size is 14px
-	Font fon = TTF_OpenFont(font_path, (font_size > 0) ? font_size : 14);
+	Font fon = TTF_OpenFont(font_path, (font_size > 0) ? font_size : 14); //default size is 14px
 	if (!fon) { debug("Error loading font: %s: %s", font_path, TTF_GetError()); }
 
 	s->texture = load_font(fon, text, col);
 	TTF_CloseFont(fon);
 
+	sasprintf(s->name, "%s", text); //the name of this sprite is its text
+
 	/** THIS IS A HACK UNTIL LOADING RESOURCES IS STREAMLINED */
-	sasprintf(s->name, "%s", font_path);
 	int tex_w, tex_h;
 	SDL_QueryTexture(s->texture, NULL, NULL, &tex_w, &tex_h);
 	//initialize texture and frame size
@@ -213,7 +215,7 @@ text_new(String font_path, String text, Color col, int font_size) {
 
 /** Private */
 
-SDL_Texture*
+Texture
 load_texture(String path) {
 	SDL_Surface* tmp = IMG_Load(path);
 	if (!tmp) {
@@ -226,20 +228,21 @@ load_texture(String path) {
 		SDL_SetColorKey(tmp, SDL_TRUE, SDL_MapRGB(tmp->format, 255, 0, 255));
 	}
 
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tmp);
+	Texture tex = SDL_CreateTextureFromSurface(renderer, tmp);
 	SDL_FreeSurface(tmp);
 	return tex;
 }
 
-SDL_Texture*
+Texture
 load_font(Font font, String path, Color col) {
 	SDL_Color c = {255, 255, 255, 255}; // white font by default
 	if (col) { c = *col; }
 
 	SDL_Surface* tmp = TTF_RenderText_Solid(font, path, c);
+	//SDL_Surface* tmp = TTF_RenderText_Blended(font, path, c); //antialias - slow
 	if (!tmp) {debug("error loading font texture: %s: %s", path, TTF_GetError()); }
 
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tmp);
+	Texture tex = SDL_CreateTextureFromSurface(renderer, tmp);
 	SDL_FreeSurface(tmp);
 	return tex;
 }

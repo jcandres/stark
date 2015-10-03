@@ -7,6 +7,8 @@
  * alpha!), and SDL_image allows using .png files if libpng16-16.dll is present
  *
  * SDL_ttf used for rendering fonts, requires libfreetype-6.dll
+ * It does not allow for real-time rendering, but it will render strings into
+ * a Texture using a .ttf font.
  */
 
 
@@ -32,8 +34,9 @@ void 	screen_quit();
 /**
  * Types
  */
-typedef SDL_Rect* Rect;
-typedef SDL_Color* Color;
+typedef SDL_Texture* 	Texture;
+typedef SDL_Rect* 	Rect;
+typedef SDL_Color* 	Color;
 
 
 /** Sprites are 2D images, with animation capabilities */
@@ -41,8 +44,9 @@ typedef struct sprite sprite;
 typedef struct sprite* Sprite;
 
 struct sprite {
-	SDL_Texture* 	texture;
+	Texture 	texture;
 	String		name;
+
 	int 		w, h; 				//tile size
 	int 		row, col; 			//tile position on spritesheet
 	int 		sheet_w, sheet_h;		//size of texture
@@ -89,9 +93,10 @@ void 	sprite_set_scale(Sprite s, float xscale, float yscale);
 void 	sprite_set_speed(Sprite s, float seconds);
 void 	sprite_set_callback(Sprite s, void (*func)(Sprite self));
 
-/** texts are sprites generated from a font file and user text */
-Sprite 	text_new(String font_path, String text, Color col, int font_size);
 
+/** Text */
+/** texts are sprites generated from a font file and user text */
+Sprite 	text_new(String font_path, String text, int font_size, Color col);
 
 
 #endif

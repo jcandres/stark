@@ -49,7 +49,7 @@ stark_execute() {
 	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "0, 1, 2, 1", .25);
 	sprite_set_scale(e->sprite, 10, 10);
 	//f->sprite = sprite_new("res/bg.png", 0, 0, 0, 0);
-	f->sprite = text_new("res/kimberley.ttf", "hi hi bbbb", 0, 0);
+	f->sprite = text_new("res/kimberley.ttf", "hi hi bbbb", 50, 0);
 	////////////
 	Music m = music_load("res/notes.wav");
 	music_play(m, true, 5);
@@ -66,7 +66,6 @@ stark_execute() {
 		entity_update(f); /////////
 		entity_draw(e); /////////
 		entity_draw(f); /////////
-
 
 		screen_render();
 	}
