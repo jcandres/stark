@@ -1,4 +1,6 @@
+#include <SDL_image.h>
 #include "graphic.h"
+
 
 /** Private */
 SDL_Texture* load_texture(String path);
@@ -13,7 +15,7 @@ screen_init(const char* title, int w, int h, int zoom) {
 	win_w = w;
 	win_h = h;
 
-	if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0) {debug("failed to init vide, %s", SDL_GetError());}
+	if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0) {debug("failed to init SDL video, %s", SDL_GetError());}
 
 	window = SDL_CreateWindow(title,  SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, win_w, win_h, 0);
 	if (!window) { debug("failed to create window, %s", SDL_GetError()); return false; }
@@ -25,6 +27,9 @@ screen_init(const char* title, int w, int h, int zoom) {
 		scr_zoom = zoom;
 		SDL_RenderSetLogicalSize(renderer, win_w / zoom, win_h / zoom);
 	}
+
+	//Init SDL_image
+	if (IMG_Init(IMG_INIT_PNG) < 0) {debug("failed to init SDL_image, %s", IMG_GetError());}
 
 	//init true font
 	//if (TTF_Init() < 0) { debug("TTF_Init: %s\n", TTF_GetError()); exit(2); }
@@ -56,6 +61,7 @@ screen_render() {
 
 void
 screen_quit() {
+	IMG_Quit();
 	//TTF_Quit();
 }
 
@@ -66,7 +72,7 @@ Sprite
 sprite_new(String path, int frame_w, int frame_h, String anim_sequence, float speed) {
 	Sprite s = calloc(1, sizeof(struct sprite));
 
-	strmk(s->name, "%s", path);
+	s->name = string_new(path);
 
 	s->texture = load_texture(path);
 	int tex_w, tex_h;
@@ -86,7 +92,7 @@ sprite_new(String path, int frame_w, int frame_h, String anim_sequence, float sp
 
 	//initialize animation vars
 	if (anim_sequence) {
-		strmk(s->anim_sequence, "");
+		s->anim_sequence = string_new("");
 		//iterate chars - if we have a number, append it to the array
 		for (char* i = anim_sequence; *i != '\0'; i++) {
 			int n = chtoi(*i);
@@ -129,7 +135,8 @@ sprite_update(Sprite s) {
 bool
 sprite_draw(Sprite s, int x, int y) {
 	//get the frame we will draw from the String
-	int draw_frame = chtoi(s->anim_sequence[(int)s->anim_index]);
+	int draw_frame = 0;
+	if (s->anim_sequence) { draw_frame = chtoi(s->anim_sequence[(int)s->anim_index]); }
 
 	int tile_x, tile_y;
 	tile_x = (draw_frame % s->sheet_cols) * s->w;
@@ -170,12 +177,16 @@ sprite_set_callback(Sprite s, void (*func)(Sprite)) {
 
 SDL_Texture*
 load_texture(String path) {
-	SDL_Surface* tmp = SDL_LoadBMP(path);
-	if (!tmp) { debug("error loading texture: %s", path); return NULL;}
+	SDL_Surface* tmp = IMG_Load(path);
+	if (!tmp) {
+		debug("error loading texture: %s: %s", path, IMG_GetError());
+		return NULL;
+	}
 
-	//format + key magenta to alpha
-	tmp = SDL_ConvertSurfaceFormat(tmp, SDL_GetWindowPixelFormat(window), 0);
-	SDL_SetColorKey(tmp, SDL_TRUE, SDL_MapRGB(tmp->format, 255, 0, 255));
+	// .bmp files get magenta replaced by alpha
+	if (string_equals(string_get_filename_ext(path), ".bmp")) {
+		SDL_SetColorKey(tmp, SDL_TRUE, SDL_MapRGB(tmp->format, 255, 0, 255));
+	}
 
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tmp);
 	SDL_FreeSurface(tmp);

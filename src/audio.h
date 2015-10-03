@@ -7,11 +7,9 @@
  * SDL_mixer allows for 16 sound channels + 1 music channel
  * Can play multiple sounds at once, but only one music.
  *
- * Supports .WAV .RIFF .VOC natively
- * .MID if native midi hardware
- * .MOD and friends (may require .dll?)
- * .OGG by having libogg-0.dll libvorbis-0.dll and libvorbisfile-3.dll
- * .MP3 if smpeg2.dll is present (some .mp3 files will need re-encoding)
+ * Supports .wav .riff .voc natively, .mid if native midi hardware
+ * .mp3 if smpeg2.dll is present (beware some .mp3 files may need re-encoding!)
+ * .ogg support available by having libogg-0.dll libvorbis-0.dll and libvorbisfile-3.dll
  *
  */
 

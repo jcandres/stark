@@ -16,8 +16,7 @@ entity_new(String name, int x, int y) {
 	e->id = ++__ids;
 	e->_remove = 0;
 
-	e->name = NULL;
-	strmk(e->name, "%s", name);
+	e->name = string_new(name);
 
 	e->x = x;
 	e->y = y;

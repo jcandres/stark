@@ -35,8 +35,8 @@ stark_init() {
 
 void cb(Sprite self) {
 	(void)self; //avoid warning
-	Sound s = sound_load("res/popo.wav");
-	sound_play(s, 100);
+	// Sound s = sound_load("res/popo.wav");
+	// sound_play(s, 100);
 }
 
 bool
@@ -44,16 +44,16 @@ stark_execute() {
 	//if (!stark_init()) { return false; }
 
 	///////////
-	Entity e = entity_new("test entity >:0", 0, 0);
-	Entity f = entity_new("test entity >:0", 300, 300);
+	Entity e = entity_new("test entity >:0", 20, 20);
+	Entity f = entity_new("test entity >:0", 0, 0);
 	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "0, 1, 2, 1", .25);
-	f->sprite = sprite_new("res/gfx.bmp", 8, 8, "4 5", .2);
+	f->sprite = sprite_new("res/bg.png", 0, 0, 0, 0);
 	sprite_set_scale(e->sprite, 10, 10);
-	sprite_set_scale(f->sprite, 10, 10);
 	////////////
 	Music m = music_load("res/notes.wav");
 	music_play(m, true, 5);
 	sprite_set_callback(f->sprite, cb);
+
 
 	while (1) {
 		if (!input_update()) { break; }
@@ -63,8 +63,8 @@ stark_execute() {
 		get_fps();
 		entity_update(e); /////////
 		entity_update(f); /////////
-		entity_draw(e); /////////
 		entity_draw(f); /////////
+		entity_draw(e); /////////
 
 
 		screen_render();

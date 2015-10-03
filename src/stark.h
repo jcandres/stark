@@ -71,8 +71,11 @@ typedef char* String;
 #define itoch(i) ( i + '0')
 #define chtoi(ch) ( ch - '0')
 
-static inline int asprintf(char**, char*, ...);
-static inline int vasprintf(char**, char*, va_list);
+static inline int 	asprintf(char**, char*, ...);
+static inline int 	vasprintf(char**, char*, va_list);
+static inline String 	string_new(const String s);
+static inline void	string_delete(String s);
+static inline String 	string_get_filename_name(const String filename);
 
 static inline int vasprintf(char** sptr, char* fmt, va_list argv) {
 	int wanted = vsnprintf(*sptr = NULL, 0, fmt, argv);
@@ -92,6 +95,49 @@ static inline int asprintf(char** sptr, char* fmt, ...) {
 	return retval;
 }
 
+
+/** Create alocated string: String s = string_new("hi"); */
+static inline
+String
+string_new(const String s) {
+	String d = malloc(strlen(s) + 1);     // Space for length plus '\0'
+	if (d == NULL) { return NULL; }      // No memory
+	strcpy(d, s);                        // Copy the characters
+	return d;                            // Return the new String
+}
+
+/** Delete allocated String */
+static inline
+void
+string_delete(String s) {
+	free(s);
+}
+
+/** Safely compare strings */
+static inline
+bool
+string_equals(const char* a, const char* b) {
+	return strcmp(a, b) == 0;
+}
+
+/** Return "file.jpg" from "path/file.jpg" */
+static inline
+String
+string_get_filename_name(const String filename) {
+	String dot = strrchr(filename, '/');
+	if (!dot || dot == filename) { return ""; }
+	return dot + 1;
+}
+
+/** Return ".jpg" from "path/file.jpg" - including the . */
+static inline
+String
+string_get_filename_ext(const String filename) {
+	String dot = strrchr(filename, '.');
+	if (!dot || dot == filename) { return ""; }
+	return dot;
+}
+
 /**
  * Safer asprintf macro - for appending Strings
  * Sasprintf(q, "%s %s where col%i is not null", q, tablename, i);
@@ -102,22 +148,12 @@ static inline int asprintf(char** sptr, char* fmt, ...) {
 	free(tmp_string_for_extend); \
 }
 
+/** String make. Fills string with format: strmk(greeting, "hello, %s", name);*/
 #define strmk(write_to, ...) { \
 	char *tmp = (write_to); \
 	asprintf(&(write_to), __VA_ARGS__); \
 	free(tmp); \
 }
-static inline char* strdup(const char* s) {
-	char* d = malloc(strlen(s) + 1);     // Space for length plus nul
-	if (d == NULL) { return NULL; }      // No memory
-	strcpy(d, s);                        // Copy the characters
-	return d;                            // Return the new String
-}
-
-static inline bool string_equals(char* a, char* b) {
-	return strcmp(a, b) == 0;
-}
-
 
 /**
  * the THING starts here

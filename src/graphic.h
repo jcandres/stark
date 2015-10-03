@@ -2,6 +2,9 @@
 /**
  * Graphic.h includes window and screen handling
  * and sprite loading and rendering
+ *
+ * Supports .bmp natively (magenta (255,0,255) xFF00FF will be replaced by alpha!)
+ * Also .png if libpng16-16.dll is present
  */
 
 
