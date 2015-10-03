@@ -42,13 +42,17 @@ stark_execute() {
 	sprite_set_scale(e->sprite, 10, 10);
 	sprite_set_scale(f->sprite, 10, 10);
 	////////////
-	music_play(music_load("res/nervously.ogg"), true, 15);
-	//sound_play(sound_load("res/nervously.ogg"), 100);
+	Music m = music_load("res/notes.wav");
+	Music n = music_load("res/open_car.mp3");
+	music_play(m, true, 5);
 
 	while (1) {
 		if (!input_update()) { break; }
 
 		if (input_pressed(KEY_ESCAPE)) {break;} //debug hack
+		if (input_pressed(KEY_SPACE)) {
+			music_queue(n, true, 3, 3);
+		} //debug hack
 
 		get_fps();
 		entity_update(e); /////////

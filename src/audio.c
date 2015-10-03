@@ -1,5 +1,12 @@
 #include "audio.h"
 
+static Music 	mus_queued = NULL;
+static bool 	mus_queued_loop = false;
+static float 	mus_queued_fadein = 0;
+void 	music_queue_callback();
+
+
+
 bool
 audio_init() {
 	if (Mix_Init(0) < 0) {
@@ -61,7 +68,25 @@ music_delete(Music mus) {
 
 void
 music_play(Music mus, bool loop, float fade_in_seconds) {
-	Mix_FadeInMusic(mus, loop ? -1 : 1, fade_in_seconds * 1000);
+	if (Mix_FadeInMusic(mus, loop ? -1 : 1, fade_in_seconds * 1000) < 0) {
+		debug("error playing / fading in music: %s", Mix_GetError());
+	}
+}
+
+void
+music_stop(float fade_out_seconds) {
+	if (Mix_FadeOutMusic(fade_out_seconds * 1000) < 0) {
+		debug("error stopping / fading out music: %s", Mix_GetError());
+	}
+}
+
+void
+music_queue(Music mus, bool loop, float fade_out_seconds, float fade_in_seconds) {
+	mus_queued = mus;
+	mus_queued_loop = loop;
+	mus_queued_fadein = fade_in_seconds;
+	Mix_HookMusicFinished(music_queue_callback);
+	music_stop(fade_out_seconds);
 }
 
 void
@@ -79,8 +104,13 @@ music_resume() {
 	Mix_ResumeMusic();
 }
 
+
+/**
+ * private
+ */
+
 void
-music_stop(float fade_out_seconds) {
-	Mix_FadeOutMusic(fade_out_seconds * 1000);
+music_queue_callback() {
+	music_play(mus_queued, mus_queued_loop, mus_queued_fadein);
 }
 

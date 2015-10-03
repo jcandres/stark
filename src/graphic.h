@@ -1,14 +1,16 @@
-#ifndef GRAPHIC_H
-#define GRAPHIC_H
-
-#include <SDL.h>
-//#include <SDL_ttf.h>
-#include "stark.h"
 
 /**
  * Graphic.h includes window and screen handling
  * and sprite loading and rendering
  */
+
+
+#ifndef GRAPHIC_H
+#define GRAPHIC_H
+
+//#include <SDL_ttf.h>
+#include "stark.h"
+
 
 /** Window and Screen */
 SDL_Window* window;

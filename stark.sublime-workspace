@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"enti",
+				"entity_draw"
+			],
+			[
+				"anim",
+				"anim_sequence"
+			],
+			[
+				"fr",
+				"frame_sequence"
+			],
+			[
 				"U",
 				"Uint8"
 			],
@@ -480,10 +492,6 @@
 				"ent_make_corpse"
 			],
 			[
-				"enti",
-				"entity"
-			],
-			[
 				"ran",
 				"random"
 			],
@@ -506,27 +514,24 @@
 			[
 				"msg",
 				"msg_list"
-			],
-			[
-				"pos",
-				"t_post"
-			],
-			[
-				"_",
-				"_pst_num"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "#include <stdio.h>\n#include <stdlib.h>\n#include <SDL.h>\n#include <SDL_mixer.h>\n\n#include \"list.h\"\n\n#include \"stark.h\"\n#include \"audio.h\"\n#include \"input.h\"\n#include \"scene.h\"\n#include \"entity.h\"\n\n\nbool 	stark_quit();\nvoid	get_fps();\n\nbool stark_execute() {\n	//if (!stark_init()) { return false; }\n\n	///////////\n	Entity e = entity_new(\"test entity >:0\", 0, 0);\n	e->sprite = sprite_new(\"res/gfx.bmp\", 8, 8, \"012321\");\n	sprite_set_scale(e->sprite, 10, 10);\n	////////////\n	music_play(music_load(\"res/nervously.ogg\"), true, 10);\n\n	while (1) {\n		if (!input_update()) { break; }\n\n		if (input_pressed(KEY_ESCAPE)) {break;} //debug hack\n\n		get_fps();\n		entity_update(e); /////////\n		entity_draw(e); /////////\n\n\n		screen_render();\n	}\n\n\n	return stark_quit();\n}\n\n\nbool stark_init() {\n	SDL_Init(0);\n\n	if (!screen_init(\"Title\", 800, 600, 1)) { return false; }\n	if (!audio_init()) { return false; }\n	if (!input_init()) { return false; }\n	//etc\n\n	atexit(SDL_Quit);\n	return true;\n}\n\nbool stark_quit() {\n	screen_quit();\n	audio_quit();\n	input_quit();\n\n	return 0; //success, whatever\n}\n\n\nvoid get_fps() {\n	static float FPS_INTERVAL = 1.0 ;//seconds.\n	static unsigned int fps_lasttime = 0; //the last recorded time.\n	static unsigned int fps_current = 0; //the current FPS.\n	static unsigned int fps_frames = 0; //frames passed since the last recorded fps.\n	fps_frames++;\n	if (fps_lasttime < SDL_GetTicks() - FPS_INTERVAL * 1000) {\n		fps_lasttime = SDL_GetTicks();\n		fps_current = fps_frames;\n		fps_frames = 0;\n		char s[80];\n		sprintf(s, \"%s (%i fps)\", win_title, fps_current);\n		SDL_SetWindowTitle(window, s);\n	}\n}\n",
-			"file": "src/stark.c",
-			"file_size": 1674,
-			"file_write_time": 130882845539590000,
+			"file": "src/graphic.c",
 			"settings":
 			{
-				"buffer_size": 1593,
+				"buffer_size": 4602,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/entity.c",
+			"settings":
+			{
+				"buffer_size": 605,
 				"line_ending": "Windows"
 			}
 		},
@@ -534,31 +539,7 @@
 			"file": "src/audio.c",
 			"settings":
 			{
-				"buffer_size": 1395,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/graphic.c",
-			"settings":
-			{
-				"buffer_size": 5085,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/scene.h",
-			"settings":
-			{
-				"buffer_size": 450,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/audio.h",
-			"settings":
-			{
-				"buffer_size": 1035,
+				"buffer_size": 1409,
 				"line_ending": "Windows"
 			}
 		},
@@ -566,15 +547,7 @@
 			"file": "src/stark.h",
 			"settings":
 			{
-				"buffer_size": 2469,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/input.c",
-			"settings":
-			{
-				"buffer_size": 1471,
+				"buffer_size": 3317,
 				"line_ending": "Windows"
 			}
 		},
@@ -582,7 +555,15 @@
 			"file": "src/graphic.h",
 			"settings":
 			{
-				"buffer_size": 1545,
+				"buffer_size": 1568,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/stark.c",
+			"settings":
+			{
+				"buffer_size": 1931,
 				"line_ending": "Windows"
 			}
 		}
@@ -731,7 +712,7 @@
 			],
 			[
 				"Packages/User/make run 2.sublime-build",
-				"Run"
+				"remake"
 			]
 		],
 		[
@@ -827,7 +808,7 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "ins",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -1155,35 +1136,42 @@
 	"expanded_folders":
 	[
 		"/C/Users/herror/Desktop/stark",
-		"/C/Users/herror/Desktop/stark/src"
+		"/C/Users/herror/Desktop/stark/src",
+		"/C/Users/herror/Desktop/stark/stark",
+		"/C/Users/herror/Desktop/stark/stark/res"
 	],
 	"file_history":
 	[
-		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Program Files/Sublime Text 3/Packages/navigationHistory.py",
-		"/C/Users/herror/Desktop/stark/src/audio.c",
+		"/C/Users/herror/AppData/Local/Temp/prog.c",
+		"/C/Users/herror/Desktop/stark/src/entity.c",
+		"/C/Users/herror/Desktop/stark/src/stark.h",
 		"/C/Users/herror/Desktop/stark/makefile",
+		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/herror/Desktop/stark/.gitignore",
+		"/C/Users/herror/Desktop/stark/src/main.c",
+		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/make run 2.sublime-build",
+		"/C/Users/herror/Desktop/stark/src/scene.h",
+		"/C/Users/herror/Desktop/stark/src/keys.h",
+		"/C/Users/herror/Desktop/stark/src/input.h",
 		"/C/Users/herror/Desktop/stark/src/audio.h",
+		"/C/Users/herror/Desktop/stark/src/entity.h",
+		"/C/Users/herror/Desktop/stark/src/scene.c",
+		"/C/Users/herror/Desktop/stark/src/stark.c",
+		"/C/Users/herror/Desktop/stark/src/graphic.c",
+		"/C/Users/herror/Desktop/stark/src/graphic.h",
+		"/C/Users/herror/Desktop/stark/src/input.c",
+		"/C/Users/herror/Desktop/stark/src/audio.c",
+		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Program Files/Sublime Text 3/Packages/navigationHistory.py",
 		"/C/sdl2/bin/sdl2-config",
 		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.767/14_animated_sprites_and_vsync.cpp",
 		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.551/readme.txt",
 		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.599/14_animated_sprites_and_vsync.cpp",
-		"/C/Users/herror/Desktop/stark/src/graphic.c",
 		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.556/SDL_ttf.h",
 		"/C/Users/herror/AppData/Local/Temp/Rar$DRa0.019/SDL2_ttf-2.0.12/Makefile",
-		"/C/Users/herror/Desktop/stark/src/stark.c",
-		"/C/Users/herror/Desktop/stark/src/input.h",
-		"/C/Users/herror/Desktop/stark/src/input.c",
-		"/C/Users/herror/Desktop/stark/src/stark.h",
-		"/C/Users/herror/Desktop/stark/src/main.c",
-		"/C/Users/herror/Desktop/stark/src/graphic.h",
-		"/C/Users/herror/Desktop/stark/src/entity.c",
-		"/C/Users/herror/Desktop/stark/src/entity.h",
 		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/Custom-Themes/55Twilight.tmTheme",
 		"/C/Users/herror/AppData/Local/Temp/Twilight.tmTheme.txt",
-		"/C/Users/herror/Desktop/stark/src/scene.c",
-		"/C/Users/herror/Desktop/stark/src/keys.h",
 		"/C/Users/herror/AppData/Local/Temp/Rar$DIa0.710/readme.txt",
 		"/C/Users/herror/Desktop/stark/src/screen.c",
 		"/C/Users/herror/Desktop/stark/src/sound.h",
@@ -1199,7 +1187,6 @@
 		"/C/Users/herror/Desktop/stark/src/screen.h",
 		"/C/Users/herror/Desktop/stark/stark.sublime-project",
 		"/C/_work/gams/Oaks.gmx/rooms/room0.room.gmx",
-		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/make run 2.sublime-build",
 		"/C/Users/herror/AppData/Roaming/Sublime Text 3/Packages/User/make run.sublime-build",
 		"/C/Users/herror/Desktop/mag/src/stark.h",
 		"/C/Users/herror/Desktop/headhunter/src/engine.c",
@@ -1282,15 +1269,11 @@
 		"/C/_work/gams/tardig/src/do.c",
 		"/C/_work/gams/tardig/src/ai.h",
 		"/C/_work/gams/tardig/src/ai.c",
-		"/C/_work/gams/tardig/makefile",
-		"/C/_work/gams/tardig/src/entity.h",
-		"/C/_work/gams/tardig/src/engine.c",
-		"/C/_work/gams/tardig/src/engine.h",
-		"/C/Users/herror/Desktop/elc/readme.txt"
+		"/C/_work/gams/tardig/makefile"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -1305,6 +1288,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"_frames_max",
+			"frame_rate",
+			"frame_index",
+			"frame_sequence",
 			"  ",
 			"frames",
 			"anim",
@@ -1428,11 +1415,7 @@
 			"start",
 			"ini_parse",
 			"user",
-			"handler",
-			"curr",
-			"fp",
-			"legs",
-			"arms"
+			"handler"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1440,6 +1423,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"anim_number",
+			"anim_speed",
+			"anim_index",
+			"anim_sequence",
 			" ",
 			"frame_sequence",
 			"make && cd $project_base_name ",
@@ -1563,11 +1550,7 @@
 			"((p = map_get_rand(t_empty)))",
 			"t_mon",
 			"t_tile",
-			"\\\\",
-			"\\",
-			"\\\\",
-			"",
-			"CC"
+			"\\\\"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1578,82 +1561,24 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/stark.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1593,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								488,
-								488
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 60.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/audio.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1395,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								842,
-								853
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 565.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "src/graphic.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5085,
+						"buffer_size": 4602,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4551,
-								4551
+								2881,
+								2881
 							]
 						],
 						"settings":
@@ -1662,113 +1587,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3325.0,
+						"translation.y": 2170.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/scene.h",
+					"buffer": 1,
+					"file": "src/entity.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 450,
+						"buffer_size": 605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								75,
-								75
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/audio.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1035,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								366,
-								366
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/stark.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2469,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1174,
-								1174
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 300.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/input.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1471,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								46,
-								46
+								409,
+								409
 							]
 						],
 						"settings":
@@ -1777,27 +1616,56 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "src/graphic.h",
+					"buffer": 2,
+					"file": "src/audio.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1545,
+						"buffer_size": 1409,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								373,
-								373
+								649,
+								649
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 528.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/stark.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1540,
+								1540
 							]
 						],
 						"settings":
@@ -1806,10 +1674,68 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 858.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/graphic.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1568,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1129,
+								1129
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 594.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/stark.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1931,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1020,
+								1020
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 660.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1817,7 +1743,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -1866,7 +1792,7 @@
 	"project": "stark.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2009,10 +1935,22 @@
 	},
 	"select_symbol":
 	{
-		"height": 392.0,
-		"last_filter": "",
+		"height": 196.0,
+		"last_filter": "dele",
 		"selected_items":
 		[
+			[
+				"dele",
+				"entity_delete"
+			],
+			[
+				"new",
+				"entity_new"
+			],
+			[
+				"ent",
+				"entity_draw"
+			],
 			[
 				"",
 				"Sound"
@@ -2038,10 +1976,6 @@
 				"entity_draw"
 			],
 			[
-				"dele",
-				"sprite_delete"
-			],
-			[
 				"ini",
 				"stark_init"
 			],
@@ -2060,10 +1994,6 @@
 			[
 				"star",
 				"STARK_H"
-			],
-			[
-				"ent",
-				"entity_new"
 			],
 			[
 				"inp",
@@ -2232,10 +2162,6 @@
 			[
 				"do",
 				"do_throw"
-			],
-			[
-				"new",
-				"ent_new"
 			],
 			[
 				"th",
@@ -2531,15 +2457,6 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"last_automatic_layout":
-		[
-			[
-				0,
-				0,
-				1,
-				1
-			]
-		]
 	},
 	"show_minimap": false,
 	"show_open_files": false,
