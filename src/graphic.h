@@ -24,6 +24,7 @@ typedef SDL_Texture* 	Texture;
 typedef SDL_Rect* 	Rect;
 typedef SDL_Color* 	Color;
 
+
 /** Window and Screen */
 bool 	screen_init(String title, int w, int h, int zoom);
 bool 	screen_render();
