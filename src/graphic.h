@@ -20,8 +20,6 @@
 /**
  * Types
  */
-typedef SDL_Window* 	Window;
-typedef SDL_Renderer* 	Renderer;
 typedef SDL_Texture* 	Texture;
 typedef SDL_Rect* 	Rect;
 typedef SDL_Color* 	Color;
@@ -36,7 +34,6 @@ void 	screen_set_window_title(String title);
 
 
 /** Sprites are 2D images, with animation capabilities */
-typedef struct sprite sprite;
 typedef struct sprite* Sprite;
 
 struct sprite {
