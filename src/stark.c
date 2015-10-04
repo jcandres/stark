@@ -7,6 +7,7 @@
 #include "list.h"
 
 #include "stark.h"
+#include "graphic.h"
 #include "audio.h"
 #include "input.h"
 #include "scene.h"
