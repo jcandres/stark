@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "list.h"
-
 #include "stark.h"
+
 #include "graphic.h"
 #include "audio.h"
 #include "input.h"
-#include "scene.h"
 #include "entity.h"
+
+#include "list.h"
 
 /** Private */
 
@@ -20,10 +20,10 @@ void	get_fps();
 /** Game systems */
 
 bool
-stark_init() {
+stark_init(String title, int w, int h) {
 	SDL_Init(0);
 
-	if (!screen_init("Title", 800, 600, 1)) { return false; }
+	if (!screen_init(title, w, h, 1)) { return false; }
 	if (!audio_init()) { return false; }
 	if (!input_init()) { return false; }
 	//etc
@@ -40,11 +40,10 @@ void cb(Sprite self) {
 
 bool
 stark_execute() {
-	//if (!stark_init()) { return false; }
 
 	///////////
-	Entity e = entity_new("test entity >:0", 20, 20);
-	Entity f = entity_new("test entity >:0", 30, 10);
+	Entity e = entity_new("ee", 20, 20);
+	Entity f = entity_new("FFFF", 30, 10);
 	e->sprite = sprite_new("res/gfx.bmp", 8, 8, "0, 1, 2, 1", .25);
 	sprite_set_scale(e->sprite, 10, 10);
 	//f->sprite = sprite_new("res/bg.png", 0, 0, 0, 0);
@@ -53,7 +52,6 @@ stark_execute() {
 	Music m = music_load("res/notes.wav");
 	music_play(m, true, 5);
 	sprite_set_callback(f->sprite, cb);
-
 
 	while (1) {
 		if (!input_update()) { break; }

@@ -1,5 +1,4 @@
 #include "input.h"
-#include "list.h"
 
 /** Private */
 #define _MAX_STORED_KEYS 1024

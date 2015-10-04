@@ -48,14 +48,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "list.h"
 
 /** syntax */
 typedef enum { false, true } bool;
 
 /** debug */
-#define debug(M, ...) printf( "\nDEBUG %s:%d:\n  " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
-#define warning(M, ...) printf( "\nWARNING %s:%d:\n  " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+#define debug(M, ...) printf( "\nDEBUG %s:%s:%d:\n  " M "\n", __FILE__, __func__, __LINE__, ##__VA_ARGS__)
+#define warning(M, ...) printf( "\nWARNING %s:%s:%d:\n  " M "\n", __FILE__, __func__, __LINE__, ##__VA_ARGS__)
 #define trace(M, ...) printf(  M "\n", ##__VA_ARGS__) //for quick tests
 
 
@@ -169,7 +168,7 @@ string_get_filename_ext(const String filename) {
  */
 
 /** the main method of the engine, moves all other components */
-bool 	stark_init();
+bool 	stark_init(String title, int w, int h);
 bool 	stark_execute();
 
 

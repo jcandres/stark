@@ -1,171 +1,130 @@
 
+#include <math.h>
 #include "list.h"
 
-#define ___MIN___(a,b) (((a)<(b))?(a):(b))
-#define LIST(l) ((list_int_t *)l)
+/** Private */
+typedef struct list {
+	int 	num_items, num_slots;
+	void**	items;
+} list;
 
-typedef struct list_int_t {
-	void** array;
-	int fillSize;
-	int allocSize;
-} list_int_t;
+static void list_reserve_more(List l);
+static void list_reserve_less(List l);
 
-static void list_allocate_int(List l) {
-	void** newArray;
-	int newSize = LIST(l)->allocSize * 2;
-	if (newSize == 0) { newSize = 16; }
-	newArray = (void**)calloc(sizeof(void*), newSize);
-	if (LIST(l)->array) {
-		if (LIST(l)->fillSize > 0) { memcpy(newArray, LIST(l)->array, sizeof(void*)*LIST(l)->fillSize); }
-		free(LIST(l)->array);
-	}
-	LIST(l)->array = newArray;
-	LIST(l)->allocSize = newSize;
-}
 
-void list_set_size(List l, int size) {
-	LIST(l)->fillSize = ___MIN___(size, LIST(l)->allocSize);
-}
+/** List */
 
-List list_new() {
-	return (List)calloc(1, sizeof(list_int_t));
-}
-
-List list_allocate(int nb_elements) {
-	List l = list_new();
-	LIST(l)->array = (void**)calloc(sizeof(void*), nb_elements);
-	LIST(l)->allocSize = nb_elements;
+List
+list_new() {
+	List l = malloc(sizeof(struct list));
+	l->num_items = l->num_slots = 0;
+	l->items = malloc(sizeof(void*) * l->num_slots);
 	return l;
 }
 
-List list_duplicate(List l) {
-	int i = 0;
-	void** t;
-	list_int_t* ret = (list_int_t*)list_new();
-	while (ret->allocSize < LIST(l)->allocSize) { list_allocate_int((List)ret); }
-	ret->fillSize = LIST(l)->fillSize;
-	for (t = list_begin(l); t != list_end(l); t++) {
-		ret->array[i++] = *t;
-	}
-	return (List)ret;
+void
+list_delete(List l) {
+	free(l->items);
+	free(l);
+	l = NULL;
 }
 
-void list_delete(List l) {
-	if (l) {
-		if (LIST(l)->array) { free(LIST(l)->array); }
-		free(l);
-	}
+void
+list_push(List l, void* item) {
+	l->num_items++;
+	list_reserve_more(l);
+	l->items[l->num_items - 1] = item;
 }
 
-void list_push(List l, const void* elt) {
-	if (LIST(l)->fillSize + 1 >= LIST(l)->allocSize) { list_allocate_int(l); }
-	LIST(l)->array[LIST(l)->fillSize++] = (void*)elt;
+void*
+list_pop(List l) {
+	if (l->num_items <= 0) { debug("tried to pop empty list: %p", l); }
+	void* item = l->items[l->num_items - 1];
+
+	l->num_items--;
+	list_reserve_less(l);
+	return item;
 }
-void* list_pop(List l) {
-	if (LIST(l)->fillSize == 0) { return NULL; }
-	return LIST(l)->array[--(LIST(l)->fillSize)];
+
+void*
+list_pop_at(List l, int index) {
+	if (l->num_items <= 0) { debug("tried to pop empty list: %p", l); }
+	void* item = l->items[index];
+
+	memmove(&l->items[index],
+	        &l->items[index + 1],
+	        sizeof(void*) * ((l->num_items - 1) - index));
+
+	l->num_items--;
+	list_reserve_less(l);
+	return item;
 }
-void* list_peek(List l) {
-	if (LIST(l)->fillSize == 0) { return NULL; }
-	return LIST(l)->array[LIST(l)->fillSize - 1];
-}
-void list_add_all(List l, List l2) {
-	void** curElt;
-	for (curElt = list_begin(l2); curElt != list_end(l2); curElt ++) {
-		list_push(l, *curElt);
-	}
-}
-void* list_get(List l, int idx) {
-	return LIST(l)->array[idx];
-}
-void list_set(List l, const void* elt, int idx) {
-	if (idx < 0) { return; }
-	while (LIST(l)->allocSize < idx + 1) { list_allocate_int(l); }
-	LIST(l)->array[idx] = (void*)elt;
-	if (idx + 1 > LIST(l)->fillSize) { LIST(l)->fillSize = idx + 1; }
-}
-void** list_begin(List l) {
-	if (LIST(l)->fillSize == 0) { return (void**)NULL; }
-	return &LIST(l)->array[0];
-}
-void** list_end(List l) {
-	if (LIST(l)->fillSize == 0) { return (void**)NULL; }
-	return &LIST(l)->array[LIST(l)->fillSize];
-}
-void list_reverse(List l) {
-	void** head = list_begin(l);
-	void** tail = list_end(l);
-	while (head < tail) {
-		void* tmp = *head;
-		*head = *tail;
-		*tail = tmp;
-		head++;
-		tail--;
-	}
-}
-void** list_remove_iterator(List l, void** elt) {
-	void** curElt;
-	for (curElt = elt; curElt < list_end(l) - 1; curElt ++) {
-		*curElt = *(curElt + 1);
-	}
-	LIST(l)->fillSize--;
-	if (LIST(l)->fillSize == 0) { return ((void**)NULL) - 1; }
-	else { return elt - 1; }
-}
-void list_remove(List l, const void* elt) {
-	void** curElt;
-	for (curElt = list_begin(l); curElt != list_end(l); curElt ++) {
-		if (*curElt == elt) {
-			list_remove_iterator(l, curElt);
-			return;
+
+void
+list_remove(List l, void* item) {
+	static int found = 0;
+	for (int i = 0; i < l->num_items; i++) {
+		if (item == l->items[i]) {
+			list_pop_at(l, i);
+			i--;
+			//return;
 		}
 	}
 }
-void** list_remove_iterator_fast(List l, void** elt) {
-	*elt = LIST(l)->array[LIST(l)->fillSize - 1];
-	LIST(l)->fillSize--;
-	if (LIST(l)->fillSize == 0) { return ((void**)NULL) - 1; }
-	else { return elt - 1; }
+
+void*
+list_get(List l, int index) {
+	if (index < 0 || index >= l->num_items) {
+		debug("Index out of bounds for list %p", l); return NULL;
+	}
+
+	return l->items[index];
 }
-void list_remove_fast(List l, const void* elt) {
-	void** curElt;
-	for (curElt = list_begin(l); curElt != list_end(l); curElt ++) {
-		if (*curElt == elt) {
-			list_remove_iterator_fast(l, curElt);
-			return;
-		}
+
+void
+list_set(List l, int index, void* item) {
+	if (index < 0 || index >= l->num_items) {
+		debug("Index out of bounds for list %p", l); return;
+	}
+
+	l->items[index] = item;
+}
+
+void
+list_clear(List l) {
+	l->num_items = 0;
+	l->num_slots = 0;
+	l->items = realloc(l->items, sizeof(void*) * l->num_slots);
+}
+
+int
+list_is_empty(List l) {
+	return (!l->num_items);
+}
+
+int
+list_size(List l) {
+	return l->num_items;
+}
+
+
+/** Private */
+/** Realloc functions for matching the current number of items */
+
+static
+void
+list_reserve_more(List l) {
+	if (l->num_items > l->num_slots) {
+		l->num_slots = ceil((l->num_slots + 1) * 1.5);
+		l->items = realloc(l->items, sizeof(void*) * l->num_slots);
 	}
 }
-int list_contains(List l, const void* elt) {
-	void** curElt;
-	for (curElt = list_begin(l); curElt != list_end(l); curElt ++) {
-		if (*curElt == elt) { return 1; }
+
+static
+void
+list_reserve_less(List l) {
+	if (l->num_slots > pow(l->num_items + 1, 1.5)) {
+		l->num_slots = floor((l->num_slots - 1) * (1.0 / 1.5));
+		l->items = realloc(l->items, sizeof(void*) * l->num_slots);
 	}
-	return 0;
-}
-void list_clear(List l) {
-	LIST(l)->fillSize = 0;
-}
-void list_clear_and_delete(List l) {
-	void** curElt;
-	for (curElt = list_begin(l); curElt != list_end(l); curElt ++) {
-		free(*curElt);
-	}
-	LIST(l)->fillSize = 0;
-}
-int list_size(List l) {
-	return LIST(l)->fillSize;
-}
-void** list_insert_before(List l, const void* elt, int before) {
-	int idx;
-	if (LIST(l)->fillSize + 1 >= LIST(l)->allocSize) { list_allocate_int(l); }
-	for (idx = LIST(l)->fillSize; idx > before; idx--) {
-		LIST(l)->array[idx] = LIST(l)->array[idx - 1];
-	}
-	LIST(l)->array[before] = (void*)elt;
-	LIST(l)->fillSize++;
-	return &LIST(l)->array[before];
-}
-int list_is_empty(List l) {
-	return (LIST(l)->fillSize == 0);
 }
