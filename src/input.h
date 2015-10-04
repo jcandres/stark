@@ -1,7 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <SDL.h>
 #include "stark.h"
 #include "keys.h"
 

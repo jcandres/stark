@@ -3,7 +3,7 @@ CC = gcc
 
 CFLAGS = -std=c99 -O3
 CFLAGS = -std=c99 -pedantic -g -Wall -Wextra
-INC = -Ic:\sdl2\include\sdl2
+INC = -Ic:\sdl2\include
 LIBDIR = -Lc:\sdl2\lib
 #-mwindows in LDFLAGS gets rid of console (and console messages, even if run from debugger...)
 LDFLAGS = -lmingw32 -lSDL2main -lSDL2 -lopengl32 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_ttf
